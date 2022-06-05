@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   operation_swap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 15:43:31 by ilyes             #+#    #+#             */
-/*   Updated: 2022/06/05 20:01:16 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/05 21:12:36 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	swap_a(t_list **lst)
 {
-	t_list	*element;
+	t_list	*temp;
 
-	element = malloc(sizeof(*element));
-	if (element == NULL)
-		return (0);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+	if (*lst != NULL)
+	{
+		temp = (*lst)->next;
+		(*lst)->next = *lst;
+		*lst = temp;
+	}
+}
+
+void	swap_b(t_list **lst)
+{
+	
+}
+
+void	swap_ab(t_list **lst_a, t_list **lst_b)
+{
+	
 }

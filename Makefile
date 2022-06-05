@@ -3,16 +3,24 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = main.c parsing.c
+SRC = main.c \
+		parsing.c \
+		list.c \
+		operation_swap.c \
+		operation_push.c \
+		operation_rotate.c \
+		operation_reverse.c
+		
 OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -L libft/. -lft -L libft_custom/. -lft_custom -o $(NAME)
+	$(CC) $(OBJ) -L libft/. -lft -L libft_custom/. -lft_custom -g -o $(NAME)
 
 %.o : %.c
 	make -C libft
+	$(MAKE) bonus -C libft
 	make -C libft_custom
 	$(CC) -c $^
 

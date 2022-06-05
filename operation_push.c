@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   operation_push.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 15:43:31 by ilyes             #+#    #+#             */
-/*   Updated: 2022/06/05 20:01:16 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/05 20:18:50 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/05 20:21:26 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	push_a(t_list **lst_b, t_list **lst_a)
 {
-	t_list	*element;
+	
+}
 
-	element = malloc(sizeof(*element));
-	if (element == NULL)
-		return (0);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+void	push_b(t_list **lst_a, t_list **lst_b)
+{
+	
 }

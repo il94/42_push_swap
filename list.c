@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew_bonus.c                                  :+:      :+:    :+:   */
+/*   list.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 15:43:31 by ilyes             #+#    #+#             */
-/*   Updated: 2022/06/05 20:01:16 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/05 20:00:22 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-t_list	*ft_lstnew(void *content)
+void	get_list(t_list **list , int ac, char **av)
 {
 	t_list	*element;
+	int		i;
 
-	element = malloc(sizeof(*element));
-	if (element == NULL)
-		return (0);
-	element->content = content;
-	element->next = NULL;
-	return (element);
+	i = ac - 1;
+	*list = ft_lstnew(av[i]);
+	while (i > 0)
+	{
+		element = ft_lstnew(av[i]);
+		ft_lstadd_front(list, element);
+		i--;
+	}
 }
