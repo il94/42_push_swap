@@ -6,11 +6,16 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/05 20:00:22 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/06 16:01:39 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	delete_content(void *content)
+{
+	content = NULL;
+}
 
 void	get_list(t_list **list , int ac, char **av)
 {

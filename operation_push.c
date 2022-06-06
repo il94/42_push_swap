@@ -6,18 +6,18 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:18:50 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/05 20:21:26 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/06 16:14:26 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push_a(t_list **lst_b, t_list **lst_a)
+void	push(t_list **lst_src, t_list **lst_dest)
 {
-	
-}
-
-void	push_b(t_list **lst_a, t_list **lst_b)
-{
-	
+	if (*lst_src != NULL)
+	{
+		ft_lstadd_front(lst_dest, ft_lstnew((*lst_src)->content));
+		*lst_src = (*lst_src)->next;
+	}
+	//free a gerer
 }

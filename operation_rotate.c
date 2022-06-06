@@ -6,20 +6,20 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:23:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/05 20:24:04 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/06 16:19:31 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_a(t_list **lst)
+void	rotate(t_list **lst)
 {
-	
-}
+	t_list	temp;
 
-void	rotate_b(t_list **lst)
-{
-	
+	if ((*lst) != NULL)
+	{
+		
+	}
 }
 
 void	rotate_ab(t_list **lst_a, t_list **lst_b)

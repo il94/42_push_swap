@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/05 20:25:39 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/06 16:15:42 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,23 @@ int	is_double(long long *inputs, int size);
 
 /* list.c */
 void	get_list(t_list **lst, int ac, char **av);
+void	get_empty_list(t_list **list , int ac);
+void	delete_content(void *content);
 
 /* operation */
 
 /* swap.c */
-void	swap_a(t_list **lst);
-void	swap_b(t_list **lst);
+void	swap(t_list **lst);
 void	swap_ab(t_list **lst_a, t_list **lst_b);
 
 /* push.c */
-void	push_a(t_list **lst_b, t_list **lst_a);
-void	push_b(t_list **lst_a, t_list **lst_b);
+void	push(t_list **lst_src, t_list **lst_dest);
 
 /* rotate.c */
+void	rotate(t_list **lst);
+void	rotate_ab(t_list **lst_a, t_list **lst_b);
+
+/* reverse.c */
 void	reverse_a(t_list **lst);
 void	reverse_b(t_list **lst);
 void	reverse_ab(t_list **lst_a, t_list **lst_b);
