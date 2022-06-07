@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/06 16:15:42 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/07 15:57:30 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ void	push(t_list **lst_src, t_list **lst_dest);
 void	rotate(t_list **lst);
 void	rotate_ab(t_list **lst_a, t_list **lst_b);
 
-/* reverse.c */
-void	reverse_a(t_list **lst);
-void	reverse_b(t_list **lst);
-void	reverse_ab(t_list **lst_a, t_list **lst_b);
+/* reverse_rotate.c */
+void	reverse_rotate(t_list **lst);
+void	reverse_rotate_ab(t_list **lst_a, t_list **lst_b);
 
 #endif

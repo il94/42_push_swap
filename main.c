@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/06 16:04:18 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/07 16:27:55 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	print_lists(t_list *lst_a, t_list *lst_b, int ac)
 		}
 		else
 			printf("\n");
-		// lst_b = lst_b->next;
 	}
 }
 
@@ -52,11 +51,10 @@ int	main(int ac, char **av)
 		get_list(&lst_a, ac, av);
 		print_lists(lst_a, lst_b, ac);
 		printf("=========\noperation\n");
-		push(&lst_a, &lst_b);
 		// push(&lst_a, &lst_b);
-		// push(&lst_a, &lst_b);
-		// push(&lst_a, &lst_b);
-		// push(&lst_a->next, &lst_b);
+		// swap(&lst_b);
+		// rotate(&lst_a);
+		// reverse_rotate(&lst_a);
 		printf("=========\n");
 		print_lists(lst_a, lst_b, ac);
 		ft_lstclear(&lst_a, &delete_content);

@@ -9,7 +9,7 @@ SRC = main.c \
 		operation_swap.c \
 		operation_push.c \
 		operation_rotate.c \
-		operation_reverse.c
+		operation_reverse_rotate.c
 		
 OBJ = $(SRC:.c=.o)
 
