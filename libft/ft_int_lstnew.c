@@ -1,20 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_custom.h                                     :+:      :+:    :+:   */
+/*   ft_int_lstnew.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/11 00:50:41 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/05 13:22:03 by ilandols         ###   ########.fr       */
+/*   Created: 2022/04/20 15:43:31 by ilyes             #+#    #+#             */
+/*   Updated: 2022/06/07 18:52:15 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_CUSTOM_H
-# define LIBFT_CUSTOM_H
-# include <stdlib.h>
-# include <unistd.h>
+#include "libft.h"
 
-long long	ft_long_long_atoi(const char *nptr);
+t_list	*ft_int_lstnew(int content)
+{
+	t_list	*element;
 
-#endif
+	element = malloc(sizeof(*element));
+	if (element == NULL)
+		return (0);
+	element->content = content;
+	element->next = NULL;
+	return (element);
+}

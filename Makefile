@@ -16,22 +16,19 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(CC) $(OBJ) -L libft/. -lft -L libft_custom/. -lft_custom -g -o $(NAME)
+	$(CC) $(OBJ) -L libft/. -lft -g -o $(NAME)
 
 %.o : %.c
 	make -C libft
-	$(MAKE) bonus -C libft
-	make -C libft_custom
+	$(MAKE) additional -C libft
 	$(CC) -c $^
 
 clean :
 	$(MAKE) clean -C libft
-	$(MAKE) clean -C libft_custom
 	rm -f $(OBJ)
 
 fclean : clean
 	rm libft/libft.a
-	rm libft_custom/libft_custom.a
 	rm -f $(NAME)
 
 re : fclean all
