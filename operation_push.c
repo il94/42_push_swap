@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:18:50 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/07 19:19:14 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/08 10:30:06 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push(t_list **lst_src, t_list **lst_dest, t_operation index)
 {
 	t_list	*temp;
-	
+
 	if (*lst_src != NULL)
 	{
 		temp = (*lst_src)->next;

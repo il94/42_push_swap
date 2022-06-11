@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/07 19:25:49 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:01:09 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,22 @@ typedef enum e_operation
 }	t_operation;
 
 /* parsing.c */
-int	is_valid_inputs(int ac, char **av);
-int	is_number(char *input);
-int	is_int(long long input);
-int	is_double(long long *inputs, int size);
+int		is_valid_inputs(int nb_parameters, char **parameters);
+char	**get_parameters(int *nb_parameters, int ac, char **av);
+int		is_number(char *input);
+int		is_int(long long input);
+int		is_double(long long *inputs, int size);
 
 /* list.c */
-void	get_list(t_list **lst, int ac, char **av);
-void	get_empty_list(t_list **list , int ac);
+void	get_list(t_list **lst, int nb_parameters, char **parameters);
 void	delete_content(int content);
+int		get_median_list(t_list **lst, int size_list);
+
+/* sort.c */
+void	sort(t_list **lst_a, t_list **lst_b, int size_list);
+
+/* utils.c */
+void	free_array(char **parameters);
 
 /* operation */
 
@@ -61,3 +68,4 @@ void	reverse_rotate(t_list **lst, t_operation index);
 void	reverse_rotate_ab(t_list **lst_a, t_list **lst_b);
 
 #endif
+
