@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:23:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/08 10:30:19 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:39:12 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	rotate(t_list **lst, t_operation index)
 	if (*lst && (*lst)->next)
 	{
 		temp = *lst;
-		ft_lstadd_back(lst, ft_int_lstnew((*lst)->content));
+		ft_lstadd_back(lst, ft_int_lstnew((*lst)->content, (*lst)->position));
 		(*lst) = temp->next;
 		free(temp);
 	}

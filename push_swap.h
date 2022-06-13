@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/11 09:01:09 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 17:54:29 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,14 @@ int		is_double(long long *inputs, int size);
 /* list.c */
 void	get_list(t_list **lst, int nb_parameters, char **parameters);
 void	delete_content(int content);
-int		get_median_list(t_list **lst, int size_list);
+float		get_median_list(t_list **lst, int size_list);
+int		is_sort(t_list **lst);
+void	get_position(t_list **lst);
+int	sens_rotate(t_list **lst, int position, int size_list);
 
 /* sort.c */
-void	sort(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_1(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_2(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* utils.c */
 void	free_array(char **parameters);
@@ -68,4 +72,3 @@ void	reverse_rotate(t_list **lst, t_operation index);
 void	reverse_rotate_ab(t_list **lst_a, t_list **lst_b);
 
 #endif
-

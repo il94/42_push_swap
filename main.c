@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/11 09:07:51 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 21:58:24 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,25 +15,27 @@
 void	print_lists(t_list *lst_a, t_list *lst_b)
 {
 	int	i;
+	static int	stat;
 
 	i = 0;
 	while (lst_a != NULL || lst_b != NULL)
 	{
 		if (lst_a != NULL)
 		{
-			printf("lst_a = %d || ", lst_a->content);
+			printf("lst_a = %d -> pos = %d || ", lst_a->content, lst_a->position);
 			lst_a = lst_a->next;
 		}
 		else
-			printf("          || ");
+			printf("                     || ");
 		if (lst_b != NULL)
 		{
-			printf("lst_b = %d\n", lst_b->content);
+			printf("lst_b = %d-> pos = %d\n", lst_b->content, lst_b->position);
 			lst_b = lst_b->next;
 		}
 		else
 			printf("\n");
 	}
+	stat = 1;
 }
 
 int	main(int ac, char **av)
@@ -53,18 +55,26 @@ int	main(int ac, char **av)
 		free_array(parameters);
 		// print_lists(lst_a, lst_b);
 		// printf("=========\noperation\n");
-				// swap(&lst_a, SA);
+			// swap(&lst_a, SA);
 			// 	swap(&lst_b, SB);
 			// 	swap_ab(&lst_a, &lst_b);
-				// push(&lst_b, &lst_a, PA);
-				// push(&lst_a, &lst_b, PB);
-				// rotate(&lst_a, RA);
+			// push(&lst_b, &lst_a, PA);
+			// push(&lst_a, &lst_b, PB);
+			// push(&lst_a, &lst_b, PB);
+			// rotate(&lst_a, RA);
 			// 	rotate(&lst_b, RB);
 			// 	rotate_ab(&lst_a, &lst_b);
-				// reverse_rotate(&lst_a, RRA);
+			// reverse_rotate(&lst_a, RRA);
 			// 	reverse_rotate(&lst_b, RRB);
 			// 	reverse_rotate_ab(&lst_a, &lst_b);
-			sort(&lst_a, &lst_b, nb_parameters);
+
+			
+			// rotate(&lst_a, RA);
+			// push(&lst_a, &lst_b, PA);
+			// rotate(&lst_a, RA);
+/*=============================================================*/
+			sort_2(&lst_a, &lst_b, nb_parameters);
+			// sort_2(&lst_a, &lst_b, nb_parameters);
 		// printf("=========\n");
 		// print_lists(lst_a, lst_b);
 		ft_int_lstclear(&lst_a, &delete_content);

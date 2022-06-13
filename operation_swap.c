@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/07 18:44:26 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 21:01:30 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	swap(t_list **lst, t_operation index)
 	if (*lst && (*lst)->next)
 	{
 		temp->content = (*lst)->content;
+		temp->position = (*lst)->position;
 		(*lst)->content = (*lst)->next->content;
+		(*lst)->position = (*lst)->next->position;
 		(*lst)->next->content = temp->content;
+		(*lst)->next->position = temp->position;
 	}
 	free(temp);
 	if (index == SA)

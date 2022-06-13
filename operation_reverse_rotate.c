@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:24:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/08 10:31:31 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:38:22 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	reverse_rotate(t_list **lst, t_operation index)
 		temp = *lst;
 		while (temp->next->next != NULL)
 			temp = temp->next;
-		ft_lstadd_front(lst, ft_int_lstnew(temp->next->content));
+		ft_lstadd_front(lst, ft_int_lstnew(temp->next->content, temp->next->position));
 		ft_int_lstdelone(temp->next, &delete_content);
 		temp->next = NULL;
 	}

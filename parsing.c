@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/11 09:00:38 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:54:25 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 	}
 	return (parameters);
 }
-
 
 int	is_valid_inputs(int nb_parameters, char **parameters)
 {

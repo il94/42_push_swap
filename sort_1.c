@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:25:31 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/09 12:23:28 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 13:33:34 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort(t_list **lst_a, t_list **lst_b, int size_list)
+void	sort_1(t_list **lst_a, t_list **lst_b, int size_list)
 {
-	int		median_list;
+	float		median_list;
 	t_list	*temp;
 	t_list	*temp_2;
 
@@ -23,9 +23,11 @@ void	sort(t_list **lst_a, t_list **lst_b, int size_list)
 	while (ft_lstsize(*lst_b) < (size_list / 2))
 	{
 		if ((*lst_a)->content <= median_list)
-			push(lst_a, lst_b, PA);
+			push(lst_a, lst_b, PB);
 		rotate(lst_a, RA);
 	}
+	// print_lists(*lst_a, *lst_b);
+
 /*====================================================================*/
 	temp = *lst_a;
 	temp_2 = *lst_a;
@@ -48,7 +50,7 @@ void	sort(t_list **lst_a, t_list **lst_b, int size_list)
 		while ((*lst_b)->next)
 		{
 			if ((*lst_b)->content < (*lst_b)->next->content)
-				swap(lst_b, SA);
+				swap(lst_b, SB);
 			*lst_b = (*lst_b)->next;
 		}
 		temp = temp->next;
@@ -56,5 +58,5 @@ void	sort(t_list **lst_a, t_list **lst_b, int size_list)
 	}
 /*====================================================================*/
 	while (ft_lstsize(*lst_b) > 0)
-		push(lst_b, lst_a, PB);
+		push(lst_b, lst_a, PA);
 }

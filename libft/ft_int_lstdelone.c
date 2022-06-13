@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/21 17:02:53 by ilyes             #+#    #+#             */
-/*   Updated: 2022/06/07 19:24:40 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/13 14:32:58 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_int_lstdelone(t_list *lst, void (*del)(int))
 	else
 	{
 		del(lst->content);
+		del(lst->position);
 		free(lst);
 	}
 }
