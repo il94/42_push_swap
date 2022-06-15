@@ -6,22 +6,22 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:18:50 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 14:34:47 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:32:31 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_list **lst_src, t_list **lst_dest, t_operation index)
+void	push(t_list **src, t_list **dest, t_operation index)
 {
-	t_list	*temp;
+	t_list	*tmp;
 
-	if (*lst_src != NULL)
+	if (*src != NULL)
 	{
-		temp = (*lst_src)->next;
-		ft_lstadd_front(lst_dest, ft_int_lstnew((*lst_src)->content, (*lst_src)->position));
-		ft_int_lstdelone(*lst_src, &delete_content);
-		*lst_src = temp;
+		tmp = (*src)->next;
+		ft_lstadd_front(dest, ft_ps_lstnew((*src)->content, (*src)->pos));
+		ft_ps_lstdelone(*src, &delete_content);
+		*src = tmp;
 	}
 	if (index == PA)
 		write(1, "pa\n", 3);

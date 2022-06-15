@@ -6,37 +6,11 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 21:58:24 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:17:38 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	print_lists(t_list *lst_a, t_list *lst_b)
-{
-	int	i;
-	static int	stat;
-
-	i = 0;
-	while (lst_a != NULL || lst_b != NULL)
-	{
-		if (lst_a != NULL)
-		{
-			printf("lst_a = %d -> pos = %d || ", lst_a->content, lst_a->position);
-			lst_a = lst_a->next;
-		}
-		else
-			printf("                     || ");
-		if (lst_b != NULL)
-		{
-			printf("lst_b = %d-> pos = %d\n", lst_b->content, lst_b->position);
-			lst_b = lst_b->next;
-		}
-		else
-			printf("\n");
-	}
-	stat = 1;
-}
 
 int	main(int ac, char **av)
 {
@@ -44,7 +18,7 @@ int	main(int ac, char **av)
 	t_list		*lst_b;
 	char		**parameters;
 	int			nb_parameters;
-	
+
 	if (ac < 2)
 		exit (0);
 	parameters = get_parameters(&nb_parameters, ac, av);
@@ -53,32 +27,17 @@ int	main(int ac, char **av)
 		lst_b = NULL;
 		get_list(&lst_a, nb_parameters, parameters);
 		free_array(parameters);
+		get_position(&lst_a);
 		// print_lists(lst_a, lst_b);
 		// printf("=========\noperation\n");
-			// swap(&lst_a, SA);
-			// 	swap(&lst_b, SB);
-			// 	swap_ab(&lst_a, &lst_b);
-			// push(&lst_b, &lst_a, PA);
-			// push(&lst_a, &lst_b, PB);
-			// push(&lst_a, &lst_b, PB);
-			// rotate(&lst_a, RA);
-			// 	rotate(&lst_b, RB);
-			// 	rotate_ab(&lst_a, &lst_b);
-			// reverse_rotate(&lst_a, RRA);
-			// 	reverse_rotate(&lst_b, RRB);
-			// 	reverse_rotate_ab(&lst_a, &lst_b);
-
-			
-			// rotate(&lst_a, RA);
-			// push(&lst_a, &lst_b, PA);
-			// rotate(&lst_a, RA);
-/*=============================================================*/
-			sort_2(&lst_a, &lst_b, nb_parameters);
-			// sort_2(&lst_a, &lst_b, nb_parameters);
+		if (nb_parameters == 3)
+			sort_three(&lst_a, &lst_b, nb_parameters);
+		else if (nb_parameters == 5)
+			sort_five(&lst_a, &lst_b, nb_parameters);
 		// printf("=========\n");
 		// print_lists(lst_a, lst_b);
-		ft_int_lstclear(&lst_a, &delete_content);
-		ft_int_lstclear(&lst_b, &delete_content);
+		ft_ps_lstclear(&lst_a, &delete_content);
+		ft_ps_lstclear(&lst_b, &delete_content);
 	}
 	else
 		write(2, "Error\n", 6);

@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:50:41 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 14:33:28 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:26:57 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 typedef struct s_list
 {
 	int				content;
-	int				position;
+	int				pos;
 	struct s_list	*next;
 }					t_list;
 
 /* added for push_swap */
 long long	ft_long_long_atoi(const char *nptr);
-t_list		*ft_int_lstnew(int content, int position);
-void		ft_int_lstdelone(t_list *lst, void (*del)(int));
-void		ft_int_lstclear(t_list **lst, void (*del)(int));
+t_list		*ft_ps_lstnew(int content, int position);
+void		ft_ps_lstdelone(t_list *lst, void (*del)(int *));
+void		ft_ps_lstclear(t_list **lst, void (*del)(int *));
 
 int			ft_isalpha(int c);
 int			ft_isdigit(int c);

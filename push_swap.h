@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 17:54:29 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:29:36 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@ typedef enum e_operation
 	RRB,
 }	t_operation;
 
+/* temp.c */
+void	print_lists(t_list *lst_a, t_list *lst_b);
+float		get_median_list(t_list **lst, int size_list);
+
 /* parsing.c */
 int		is_valid_inputs(int nb_parameters, char **parameters);
 char	**get_parameters(int *nb_parameters, int ac, char **av);
@@ -40,19 +44,19 @@ int		is_int(long long input);
 int		is_double(long long *inputs, int size);
 
 /* list.c */
+int	compare_two_min_position(t_list **lst, int size_list);
 void	get_list(t_list **lst, int nb_parameters, char **parameters);
-void	delete_content(int content);
-float		get_median_list(t_list **lst, int size_list);
 int		is_sort(t_list **lst);
 void	get_position(t_list **lst);
 int	sens_rotate(t_list **lst, int position, int size_list);
 
 /* sort.c */
-void	sort_1(t_list **lst_a, t_list **lst_b, int size_list);
-void	sort_2(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_three(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* utils.c */
 void	free_array(char **parameters);
+void	delete_content(int *content);
 
 /* operation */
 
@@ -61,7 +65,7 @@ void	swap(t_list **lst, t_operation index);
 void	swap_ab(t_list **lst_a, t_list **lst_b);
 
 /* push.c */
-void	push(t_list **lst_src, t_list **lst_dest, t_operation index);
+void	push(t_list **lst_src, t_list **lst_dst, t_operation index);
 
 /* rotate.c */
 void	rotate(t_list **lst, t_operation index);

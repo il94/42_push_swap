@@ -1,32 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_int_lstclear.c                                  :+:      :+:    :+:   */
+/*   ft_ps_lstnew.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/21 18:35:28 by ilyes             #+#    #+#             */
-/*   Updated: 2022/06/07 19:24:43 by ilandols         ###   ########.fr       */
+/*   Created: 2022/04/20 15:43:31 by ilyes             #+#    #+#             */
+/*   Updated: 2022/06/13 14:37:12 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_int_lstclear(t_list **lst, void (*del)(int))
+t_list	*ft_ps_lstnew(int content, int position)
 {
-	t_list	*temp;
+	t_list	*element;
 
-	temp = *lst;
-	if (lst == NULL)
-		return ;
-	else
-	{
-		while (temp != NULL)
-		{
-			temp = (*lst)->next;
-			del((*lst)->content);
-			free(*lst);
-			*lst = temp;
-		}
-	}
+	element = malloc(sizeof(*element));
+	if (element == NULL)
+		return (0);
+	element->content = content;
+	element->pos = position;
+	element->next = NULL;
+	return (element);
 }

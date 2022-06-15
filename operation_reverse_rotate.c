@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:24:36 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 14:38:22 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:30:35 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 void	reverse_rotate(t_list **lst, t_operation index)
 {
-	t_list	*temp;
+	t_list	*tmp;
 
 	if (*lst && (*lst)->next)
 	{
-		temp = *lst;
-		while (temp->next->next != NULL)
-			temp = temp->next;
-		ft_lstadd_front(lst, ft_int_lstnew(temp->next->content, temp->next->position));
-		ft_int_lstdelone(temp->next, &delete_content);
-		temp->next = NULL;
+		tmp = *lst;
+		while (tmp->next->next != NULL)
+			tmp = tmp->next;
+		ft_lstadd_front(lst, ft_ps_lstnew(tmp->next->content, tmp->next->pos));
+		ft_ps_lstdelone(tmp->next, &delete_content);
+		tmp->next = NULL;
 	}
 	if (index == RRA)
 		write(1, "rra\n", 4);

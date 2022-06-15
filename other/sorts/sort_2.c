@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:25:31 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 22:22:54 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/14 17:27:18 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 void	sort_2(t_list **lst_a, t_list **lst_b, int size_list)
 {
 	t_list	*temp;
-
+	int		median;
+	
+	median = size_list / 2;
+	// printf("median = %d\n", median);
 	get_position(lst_a);
 			// print_lists(*lst_a, *lst_b);
 
@@ -24,7 +27,7 @@ void	sort_2(t_list **lst_a, t_list **lst_b, int size_list)
 		// printf("content = %d\n", (*lst_a)->position);
 		// if ((*lst_a)->position == ((*lst_a)->next->position - 1))
 		// 	swap(lst_a, SA);
-		if ((*lst_a)->position < size_list / 2)
+		if ((*lst_a)->position < median)
 		{
 			push(lst_a, lst_b, PB);
 			while ((*lst_b)->position == (*lst_a)->position - 1 && (*lst_a)->next)
@@ -49,11 +52,25 @@ void	sort_2(t_list **lst_a, t_list **lst_b, int size_list)
 			}
 			// push(lst_b, lst_a, PA);
 		}
-		if (sens_rotate(lst_a, (*lst_a)->position, size_list))
-			reverse_rotate(lst_a, RRA);
 		else
-			rotate(lst_a, RA);
-		// reverse_rotate(lst_a, RRA);
-			// print_lists(*lst_a, *lst_b);
+		{
+				// print_lists(*lst_a, *lst_b);
+			if ((*lst_a)->next->position >= median)
+			{
+				while ((*lst_a)->next->position >= median)
+					reverse_rotate(lst_a, RRA);
+			}
+			else if ((*lst_a)->next->position < median)
+			{
+				while ((*lst_a)->next->position < median)
+					rotate(lst_a, RA);
+			}
+		}
+		// if ((*lst_a)->position > ft_lstlast(*lst_a)->position)
+		// 	reverse_rotate(lst_a, RRA);
+		// else
+		// 	rotate(lst_a, RA);
+		// print_lists(*lst_a, *lst_b);
+
 	}
 }

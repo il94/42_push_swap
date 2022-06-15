@@ -10,9 +10,10 @@ SRC = main.c \
 		operation_push.c \
 		operation_rotate.c \
 		operation_reverse_rotate.c \
-		sort_1.c \
-		sort_2.c \
-		utils.c
+		sort_five.c \
+		sort_three.c \
+		utils.c \
+		temp.c
 		
 OBJ = $(SRC:.c=.o)
 
@@ -20,10 +21,10 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	$(MAKE) additional -C libft
-	$(CC) $(OBJ) -L libft/. -lft -g -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) -L libft/. -lft -g -o $(NAME)
 
 %.o : %.c
-	$(CC) -c $^
+	$(CC) $(CFLAGS) -c $^
 
 clean :
 	$(MAKE) clean -C libft

@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/13 21:01:30 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 17:26:13 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 void	swap(t_list **lst, t_operation index)
 {
-	t_list	*temp;
+	t_list	*tmp;
 
-	temp = malloc(sizeof(*temp));
+	tmp = malloc(sizeof(*tmp));
 	if (*lst && (*lst)->next)
 	{
-		temp->content = (*lst)->content;
-		temp->position = (*lst)->position;
+		tmp->content = (*lst)->content;
+		tmp->pos = (*lst)->pos;
 		(*lst)->content = (*lst)->next->content;
-		(*lst)->position = (*lst)->next->position;
-		(*lst)->next->content = temp->content;
-		(*lst)->next->position = temp->position;
+		(*lst)->pos = (*lst)->next->pos;
+		(*lst)->next->content = tmp->content;
+		(*lst)->next->pos = tmp->pos;
 	}
-	free(temp);
+	free(tmp);
 	if (index == SA)
 		write(1, "sa\n", 3);
 	else if (index == SB)

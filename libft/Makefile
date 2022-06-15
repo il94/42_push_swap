@@ -47,9 +47,9 @@ BONUS_SRC = ft_lstadd_front_bonus.c \
 BONUS_OBJ = $(BONUS_SRC:.c=.o)
 
 ADD_SRC = ft_long_long_atoi.c \
-		ft_int_lstnew.c \
-		ft_int_lstdelone.c \
-		ft_int_lstclear.c \
+		ft_ps_lstnew.c \
+		ft_ps_lstdelone.c \
+		ft_ps_lstclear.c \
 
 ADD_OBJ = $(ADD_SRC:.c=.o)
 

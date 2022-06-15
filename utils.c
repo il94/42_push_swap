@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/11 08:53:12 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/11 09:53:45 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/15 16:32:40 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,9 @@ void	free_array(char **parameters)
 		i++;
 	}
 	free(parameters);
+}
+
+void	delete_content(int *content)
+{
+	*content = 0;
 }
