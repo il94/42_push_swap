@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 17:29:36 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/17 14:52:26 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,11 @@ typedef enum e_operation
 	RRB,
 }	t_operation;
 
-/* temp.c */
+/* temp.c */ /* bits.c */
 void	print_lists(t_list *lst_a, t_list *lst_b);
 float		get_median_list(t_list **lst, int size_list);
+void	print_bits(int byte);
+void	print_all_bits(t_list *lst_a, t_list *lst_b);
 
 /* parsing.c */
 int		is_valid_inputs(int nb_parameters, char **parameters);
@@ -51,7 +53,9 @@ void	get_position(t_list **lst);
 int	sens_rotate(t_list **lst, int position, int size_list);
 
 /* sort.c */
+void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_fourght(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_three(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* utils.c */

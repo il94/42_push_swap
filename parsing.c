@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 18:01:08 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/17 12:10:32 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,28 +18,17 @@ int	is_double(long long *inputs, int size)
 	int	j;
 
 	i = 0;
-	// printf("i = %lld\n", inputs[i]);
-	// printf("i = %lld\n", inputs[i + 1]);
-	// printf("i = %lld\n", inputs[i + 2]);
-	// printf("i = %lld\n", inputs[i + 3]);
-	// printf("i = %lld\n", inputs[i + 4]);
 	while (i < size - 1)
 	{
 		j = i + 1;
-		// printf("i = %lld && j = %lld\n", inputs[i], inputs[j]);
 		while (j < size)
 		{
 			if (inputs[i] == inputs[j])
-			{
-				printf("debug\n");
 				return (1);
-			}
 			j++;
-			// printf("i = %lld && j = %lld\n", inputs[i], inputs[j]);
 		}
 		i++;
 	}
-	// printf("END\n");
 	return (0);
 }
 

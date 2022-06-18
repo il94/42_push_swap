@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 17:17:38 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/17 16:48:36 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@ int	main(int ac, char **av)
 		get_list(&lst_a, nb_parameters, parameters);
 		free_array(parameters);
 		get_position(&lst_a);
-		// print_lists(lst_a, lst_b);
-		// printf("=========\noperation\n");
-		if (nb_parameters == 3)
-			sort_three(&lst_a, &lst_b, nb_parameters);
-		else if (nb_parameters == 5)
-			sort_five(&lst_a, &lst_b, nb_parameters);
-		// printf("=========\n");
-		// print_lists(lst_a, lst_b);
-		ft_ps_lstclear(&lst_a, &delete_content);
-		ft_ps_lstclear(&lst_b, &delete_content);
+		print_lists(lst_a, lst_b);
+		printf("============\noperation\n");
+		if (!is_sort(&lst_a))
+		{
+			if (nb_parameters == 2)
+				swap(&lst_a, SA);
+			else if (nb_parameters == 3)
+				sort_three(&lst_a, &lst_b, nb_parameters);
+			else if (nb_parameters == 4)
+				sort_fourght(&lst_a, &lst_b, nb_parameters);
+			else if (nb_parameters == 5)
+				sort_five(&lst_a, &lst_b, nb_parameters);
+			else
+				radix_sort(&lst_a, &lst_b, nb_parameters);
+			printf("==================================\n");
+			print_lists(lst_a, lst_b);
+			ft_ps_lstclear(&lst_a, &delete_content);
+			ft_ps_lstclear(&lst_b, &delete_content);
+		}
 	}
 	else
 		write(2, "Error\n", 6);
