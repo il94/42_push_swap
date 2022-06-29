@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/17 12:10:32 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/29 19:06:43 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	is_number(char *input)
 	i = 0;
 	if (input[i] == '\0')
 		return (0);
-	if (input[i] == '-')
+	if (input[i] == '-' || input[i] == '+')
 		i++;
 	while (input[i])
 	{
@@ -54,6 +54,30 @@ int	is_number(char *input)
 			return (0);
 		i++;
 	}
+	return (1);
+}
+
+int	is_valid_inputs(int nb_parameters, char **parameters)
+{
+	int			i;
+	long long	*inputs;
+
+	inputs = malloc((nb_parameters) * sizeof(long long));
+	if (!inputs)
+		exit (1);
+	i = 0;
+	while (parameters[i])
+	{
+		inputs[i] = ft_long_long_atoi(parameters[i]);
+		if (!is_number(parameters[i]) || !is_int(inputs[i]) || is_double(inputs, i + 1))
+		{
+			free_array(parameters);
+			free(inputs);
+			return (0);
+		}
+		i++;
+	}
+	free(inputs);
 	return (1);
 }
 
@@ -79,28 +103,4 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 		parameters[*nb_parameters] = NULL;
 	}
 	return (parameters);
-}
-
-int	is_valid_inputs(int nb_parameters, char **parameters)
-{
-	int			i;
-	long long	*inputs;
-
-	inputs = malloc((nb_parameters) * sizeof(long long));
-	if (!inputs)
-		exit (1);
-	i = 0;
-	while (parameters[i])
-	{
-		inputs[i] = ft_long_long_atoi(parameters[i]);
-		if (!is_number(parameters[i]) || !is_int(inputs[i]) || is_double(inputs, i + 1))
-		{
-			free_array(parameters);
-			free(inputs);
-			return (0);
-		}
-		i++;
-	}
-	free(inputs);
-	return (1);
 }

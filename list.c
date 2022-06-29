@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 17:27:08 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:27:25 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	sens_rotate(t_list **lst, int target, int size_list)
 		return (0);
 }
 
-void	get_position(t_list **lst)
+void	get_positions(t_list **lst)
 {
 	t_list	*start;	
 	t_list	*tmp;	

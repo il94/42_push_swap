@@ -14,9 +14,11 @@ SRC = main.c \
 		sort_fourght.c \
 		sort_five.c \
 		radix_sort.c \
+		rayan_sort.c \
 		utils.c \
 		temp.c \
-		bits.c
+		bits.c \
+		push_swap.c
 		
 OBJ = $(SRC:.c=.o)
 

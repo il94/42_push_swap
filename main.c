@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/17 16:48:36 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:58:06 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,32 +21,22 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		exit (0);
-	parameters = get_parameters(&nb_parameters, ac, av);
-	if (is_valid_inputs(nb_parameters, parameters))
+	if (av[1] && av[1][0])
 	{
-		lst_b = NULL;
-		get_list(&lst_a, nb_parameters, parameters);
-		free_array(parameters);
-		get_position(&lst_a);
-		print_lists(lst_a, lst_b);
-		printf("============\noperation\n");
-		if (!is_sort(&lst_a))
+		parameters = get_parameters(&nb_parameters, ac, av);
+		if (is_valid_inputs(nb_parameters, parameters))
 		{
-			if (nb_parameters == 2)
-				swap(&lst_a, SA);
-			else if (nb_parameters == 3)
-				sort_three(&lst_a, &lst_b, nb_parameters);
-			else if (nb_parameters == 4)
-				sort_fourght(&lst_a, &lst_b, nb_parameters);
-			else if (nb_parameters == 5)
-				sort_five(&lst_a, &lst_b, nb_parameters);
-			else
-				radix_sort(&lst_a, &lst_b, nb_parameters);
-			printf("==================================\n");
-			print_lists(lst_a, lst_b);
+			lst_b = NULL;
+			get_list(&lst_a, nb_parameters, parameters);
+			free_array(parameters);
+			get_positions(&lst_a);
+			if (!is_sort(&lst_a))
+				push_swap(&lst_a, &lst_b, nb_parameters);
 			ft_ps_lstclear(&lst_a, &delete_content);
 			ft_ps_lstclear(&lst_b, &delete_content);
 		}
+		else
+			write(2, "Error\n", 6);
 	}
 	else
 		write(2, "Error\n", 6);

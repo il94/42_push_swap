@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 20:23:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 13:40:35 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/29 18:35:50 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/29 18:38:38 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_list **lst, t_operation index)
+void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters)
 {
-	t_list	*tmp;
-
-	if (*lst && (*lst)->next)
-	{
-		tmp = *lst;
-		ft_lstadd_back(lst, ft_ps_lstnew((*lst)->content, (*lst)->pos));
-		(*lst) = tmp->next;
-		free(tmp);
-	}
-	if (index == RA)
-		write(1, "ra\n", 3);
-	else if (index == RB)
-		write(1, "rb\n", 3);
-}
-
-void	rotate_ab(t_list **lst_a, t_list **lst_b)
-{
-	rotate(lst_a, NOTHING);
-	rotate(lst_b, NOTHING);
-	write(1, "rr\n", 3);
+	if (nb_parameters == 2)
+		swap(lst_a, SA);
+	else if (nb_parameters == 3)
+		sort_three(lst_a, lst_b, nb_parameters);
+	else if (nb_parameters == 4)
+		sort_fourght(lst_a, lst_b, nb_parameters);
+	else if (nb_parameters == 5)
+		sort_five(lst_a, lst_b, nb_parameters);
+	else
+		radix_sort(lst_a, lst_b, nb_parameters);
 }

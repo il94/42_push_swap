@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_five.c                                           :+:      :+:    :+:   */
+/*   sort_five.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/08 10:25:31 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 15:36:28 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/29 17:53:23 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/29 18:16:04 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,27 @@
 
 void	sort_five(t_list **lst_a, t_list **lst_b, int size_list)
 {
-	int		i;
+	int		target;
 
-	i = compare_two_min_position(lst_a, size_list);
+	target = compare_two_min_position(lst_a, size_list);
 	while (ft_lstsize((*lst_b)) != 2)
 	{
-		if (sens_rotate(lst_a, i, size_list))
+		if (sens_rotate(lst_a, target, size_list))
 		{
-			while ((*lst_a)->pos != i)
+			while ((*lst_a)->pos != target)
 				rotate(lst_a, RA);
 		}
 		else
 		{
-			while ((*lst_a)->pos != i)
+			while ((*lst_a)->pos != target)
 				reverse_rotate(lst_a, RRA);
 		}
 		push(lst_a, lst_b, PB);
-		if (i == 1)
-			i = 2;
-		else
-			i = 1;
+		if (target == 2)
+			target = 0;
+		target++;
 	}
-	if (!is_sort(lst_a))
-		sort_three(lst_a, lst_b, size_list);
+	sort_three(lst_a, lst_b, size_list);
 	if ((*lst_b)->pos < (*lst_b)->next->pos)
 		swap(lst_b, SB);
 	while (*lst_b)

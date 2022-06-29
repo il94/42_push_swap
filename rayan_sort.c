@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*   rayan_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/05 20:23:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 13:40:35 by ilandols         ###   ########.fr       */
+/*   Created: 2022/06/17 11:57:00 by ilandols          #+#    #+#             */
+/*   Updated: 2022/06/29 14:37:18 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate(t_list **lst, t_operation index)
+void	rayan_sort(t_list **lst_a, t_list **lst_b, int size_list)
 {
-	t_list	*tmp;
+	t_list	*start;
+	int		i;
+	int		move;
 
-	if (*lst && (*lst)->next)
+	i = 0;
+	move = 0;
+	start = *lst_a;
+
+	while (ft_lstsize(*lst_b) < size_list)
 	{
-		tmp = *lst;
-		ft_lstadd_back(lst, ft_ps_lstnew((*lst)->content, (*lst)->pos));
-		(*lst) = tmp->next;
-		free(tmp);
+		if ((*lst_a)->next->content > (*lst_a)->content)
+			swap(lst_a, SA);
+		push(lst_a, lst_b, PB);
 	}
-	if (index == RA)
-		write(1, "ra\n", 3);
-	else if (index == RB)
-		write(1, "rb\n", 3);
-}
-
-void	rotate_ab(t_list **lst_a, t_list **lst_b)
-{
-	rotate(lst_a, NOTHING);
-	rotate(lst_b, NOTHING);
-	write(1, "rr\n", 3);
+	// print_lists(*lst_a, *lst_b);
+	while (*lst_b != 0)
+	{
+		push(lst_b, lst_a, PA);
+	}
 }

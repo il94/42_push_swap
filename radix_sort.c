@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:57:00 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/17 16:48:50 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:22:31 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,30 +14,24 @@
 
 void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list)
 {
-	t_list	*start;
-	int		i;
+	int		bit;
 	int		move;
 
-	i = 0;
+	bit = 0;
 	move = 0;
-	start = *lst_a;
-	print_all_bits(*lst_a, *lst_b);
-	while (move < 32)
+	while (!is_sort(lst_a))
 	{
-		while (i < size_list && (*lst_a))
+		while (bit < size_list && (*lst_a))
 		{
-			if (((*lst_a)->content >> move) & 1)
+			if (!(((*lst_a)->pos >> move) & 1))
 				push(lst_a, lst_b, PB);
 			else
 				rotate(lst_a, RA);
-			i++;
+			bit++;
 		}
 		while (*lst_b)
-		{
-				push(lst_b, lst_a, PA);
-		}
-		i = 0;
+			push(lst_b, lst_a, PA);
+		bit = 0;
 		move++;
 	}
-	print_all_bits(*lst_a, *lst_b);
 }

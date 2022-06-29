@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 12:02:10 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/17 16:44:08 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/06/29 14:48:57 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_all_bits(t_list *lst_a, t_list *lst_b)
 		if (lst_a != NULL)
 		{
 			printf("lst_a = %d = ", (lst_a)->content);
-			print_bits((lst_a)->content);
+			print_bits((lst_a)->pos);
 			printf(" -> pos = %d || ", lst_a->pos);
 			lst_a = lst_a->next;
 		}
@@ -42,7 +42,7 @@ void	print_all_bits(t_list *lst_a, t_list *lst_b)
 		if (lst_b != NULL)
 		{
 			printf("lst_b = %d = ", (lst_b)->content);
-			print_bits((lst_b)->content);
+			print_bits((lst_b)->pos);
 			printf(" -> pos = %d\n", lst_b->pos);
 			lst_b = lst_b->next;
 		}
