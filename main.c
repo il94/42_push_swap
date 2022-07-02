@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 18:58:06 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:54:48 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		exit (0);
-	if (av[1] && av[1][0])
-	{
+	// if (av[1] && av[1][0])
+	// {
 		parameters = get_parameters(&nb_parameters, ac, av);
 		if (is_valid_inputs(nb_parameters, parameters))
 		{
@@ -37,8 +37,8 @@ int	main(int ac, char **av)
 		}
 		else
 			write(2, "Error\n", 6);
-	}
-	else
-		write(2, "Error\n", 6);
+	// }
+	// else
+	// 	write(2, "Error\n", 6);
 	return (0);
 }

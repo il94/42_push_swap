@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/02 17:44:30 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:55:28 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 	int			i;
 	long long	*inputs;
 
+	if (parameters == NULL)
+		return (1);
 	inputs = malloc((nb_parameters) * sizeof(long long));
 	if (!inputs)
 		exit (1);
@@ -87,6 +89,10 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 	char	**parameters;
 
 	*nb_parameters = 0;
+	if (!(av[1] && av[1][0]))
+	{
+		return (NULL);
+	}
 	if (ac == 2)
 	{
 		parameters = ft_split(av[1], ' ');
