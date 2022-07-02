@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 17:26:13 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:29:35 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,21 @@ void	swap_ab(t_list **lst_a, t_list **lst_b)
 	swap(lst_a, NOTHING);
 	swap(lst_b, NOTHING);
 	write(1, "ss\n", 3);
+}
+
+void	push(t_list **src, t_list **dest, t_operation index)
+{
+	t_list	*tmp;
+
+	if (*src != NULL)
+	{
+		tmp = (*src)->next;
+		ft_lstadd_front(dest, ft_ps_lstnew((*src)->content, (*src)->pos));
+		ft_ps_lstdelone(*src, &delete_content);
+		*src = tmp;
+	}
+	if (index == PA)
+		write(1, "pa\n", 3);
+	else if (index == PB)
+		write(1, "pb\n", 3);
 }

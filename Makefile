@@ -6,18 +6,10 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = main.c \
 		parsing.c \
 		list.c \
-		operation_swap.c \
-		operation_push.c \
-		operation_rotate.c \
-		operation_reverse_rotate.c \
-		sort_three.c \
-		sort_fourght.c \
-		sort_five.c \
-		radix_sort.c \
-		rayan_sort.c \
+		operation_swap_push.c \
+		operation_rotate_reverse.c \
+		sort.c \
 		utils.c \
-		temp.c \
-		bits.c \
 		push_swap.c
 		
 OBJ = $(SRC:.c=.o)

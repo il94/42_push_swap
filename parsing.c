@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 19:06:43 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/02 17:44:30 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,8 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 	while (parameters[i])
 	{
 		inputs[i] = ft_long_long_atoi(parameters[i]);
-		if (!is_number(parameters[i]) || !is_int(inputs[i]) || is_double(inputs, i + 1))
+		if (!is_number(parameters[i]) || !is_int(inputs[i])
+			|| is_double(inputs, i + 1))
 		{
 			free_array(parameters);
 			free(inputs);

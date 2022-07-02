@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 18:38:44 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/02 20:35:23 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef enum e_operation
 
 /* temp.c */ /* bits.c */
 void	print_lists(t_list *lst_a, t_list *lst_b);
-float		get_median_list(t_list **lst, int size_list);
+float	get_median_list(t_list **lst, int size_list);
 void	print_bits(int byte);
 void	print_all_bits(t_list *lst_a, t_list *lst_b);
 
@@ -49,22 +49,17 @@ int		is_double(long long *inputs, int size);
 void	get_list(t_list **lst, int nb_parameters, char **parameters);
 void	get_positions(t_list **lst);
 int		is_sort(t_list **lst);
-int	compare_two_min_position(t_list **lst, int size_list);
-int	sens_rotate(t_list **lst, int position, int size_list);
+int		compare_two_min_position(t_list **lst, int size_list);
+int		sens_rotate(t_list **lst, int position, int size_list);
 
 /* sort */
 
-/* sort_three.c */
+/* sort_small_list.c */
+void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_four(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_three(t_list **lst_a, t_list **lst_b, int size_list);
-void	min_is_first(t_list **lst_a, t_list **lst_b, int size_list);
 void	mid_is_first(t_list **lst_a, t_list **lst_b, int size_list);
 void	max_is_first(t_list **lst_a, t_list **lst_b, int size_list);
-
-/* sort_fourght.c */
-void	sort_fourght(t_list **lst_a, t_list **lst_b, int size_list);
-
-/* sort_five.c */
-void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* radix_sort.c */
 void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list);
