@@ -56,22 +56,31 @@ ADD_OBJ = $(ADD_SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	ar rc $(NAME) $^
+	@echo "\033[33mMaking Libft - Base\033[0m"
+	@ar rc $(NAME) $^
+	@echo "\033[32mDone\033[0m"
 
 %.o : %.c
-	$(CC) -c $^
+	@$(CC) -c $^
 
 bonus : $(OBJ) $(BONUS_OBJ)
-	ar rc $(NAME) $^
+	@echo "\033[33mMaking Libft - Bonus\033[0m"
+	@ar rc $(NAME) $^
+	@echo "\033[32mDone\033[0m"
 
 additional : $(OBJ) $(BONUS_OBJ) $(ADD_OBJ)
-	ar rc $(NAME) $^
+	@echo "\033[33mMaking Libft - Additional\033[0m"
+	@ar rc $(NAME) $^
+	@echo "\033[32mDone\033[0m"
 
 clean :
-	rm -f $(OBJ) $(BONUS_OBJ) $(ADD_OBJ)
+	@echo "\033[35mCleaning Libft's objects...\033[0m"
+	@rm -f $(OBJ) $(BONUS_OBJ) $(ADD_OBJ)
+	@echo "\033[32mDone\033[0m"
 
 fclean : clean
-	rm -f $(NAME)
+	@echo "\033[35mCleaning Libft...\033[0m"
+	@rm -f $(NAME)
 
 re : fclean all
 

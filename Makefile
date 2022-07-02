@@ -17,19 +17,25 @@ OBJ = $(SRC:.c=.o)
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	$(MAKE) additional -C libft
-	$(CC) $(OBJ) -L libft/. -lft -g -o $(NAME)
+	@$(MAKE) --no-print-directory additional -C libft
+	@echo "\033[36mMaking Push Swap\033[0m"
+	@$(CC) $(OBJ) -L libft/. -lft -g -o $(NAME)
+	@echo "\033[32mDone\033[0m"
 
 %.o : %.c
-	$(CC) -c $^
+	@$(CC) -c $^
 
 clean :
-	$(MAKE) clean -C libft
-	rm -f $(OBJ)
+	@$(MAKE) --no-print-directory clean -C libft
+	@echo "\033[35mCleaning Push_Swap's objects...\033[0m"
+	@rm -f $(OBJ)
+	@echo "\033[32mDone\033[0m"
 
 fclean : clean
-	rm libft/libft.a
-	rm -f $(NAME)
+	@echo "\033[35mCleaning Push_Swap...\033[0m"
+	@rm libft/libft.a
+	@rm -f $(NAME)
+	@echo "\033[32mDone\033[0m"
 
 re : fclean all
 
