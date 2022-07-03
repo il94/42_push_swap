@@ -6,11 +6,11 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/29 18:27:25 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/03 03:06:53 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	compare_two_min_position(t_list **lst, int size_list)
 {

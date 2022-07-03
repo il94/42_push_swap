@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_rotate.c                                 :+:      :+:    :+:   */
+/*   operation_rotate_reverse.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:23:42 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/02 20:29:07 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/03 03:07:10 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	rotate(t_list **lst, t_operation index)
 {

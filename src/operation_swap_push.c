@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operation_swap.c                                   :+:      :+:    :+:   */
+/*   operation_swap_push.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/02 20:29:35 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/03 03:07:12 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	swap(t_list **lst, t_operation index)
 {

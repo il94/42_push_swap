@@ -3,14 +3,14 @@ NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 
+SRCPATH = src/
 SRC = main.c \
+		push_swap.c \
 		parsing.c \
 		list.c \
 		operation_swap_push.c \
 		operation_rotate_reverse.c \
-		sort.c \
-		utils.c \
-		push_swap.c
+		utils.c
 		
 OBJ = $(SRC:.c=.o)
 
@@ -22,8 +22,8 @@ $(NAME) : $(OBJ)
 	@$(CC) $(OBJ) -L libft/. -lft -g -o $(NAME)
 	@echo "\033[32mDone\033[0m"
 
-%.o : %.c
-	@$(CC) -c $^
+%.o : $(SRCPATH)%.c
+	@$(CC) $(CFLAGS) -c $^
 
 clean :
 	@$(MAKE) --no-print-directory clean -C libft

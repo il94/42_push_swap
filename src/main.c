@@ -6,11 +6,11 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/02 22:53:13 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/03 03:07:07 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	main(int ac, char **av)
 {
@@ -36,4 +36,3 @@ int	main(int ac, char **av)
 		write(2, "Error\n", 6);
 	return (0);
 }
-	

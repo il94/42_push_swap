@@ -6,11 +6,11 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/02 21:02:09 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/03 03:07:15 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	is_double(long long *inputs, int size)
 {
@@ -32,9 +32,17 @@ int	is_double(long long *inputs, int size)
 	return (0);
 }
 
-int	is_int(long long input)
+int	is_int(long long value, char *input)
 {
-	if (input < INT_MIN || input > INT_MAX)
+	int	i;
+
+	i = 0;
+	while (input[i])
+		i++;
+	if (i > 11 && ((input[0] != '0' || input[0] == '-' || input[0] == '+')
+			&& input[1] != '0'))
+		return (0);
+	if (value < INT_MIN || value > INT_MAX)
 		return (0);
 	return (1);
 }
@@ -46,7 +54,7 @@ int	is_number(char *input)
 	i = 0;
 	if (input[i] == '\0')
 		return (0);
-	if (input[i] == '-' || input[i] == '+')
+	if ((input[i] == '-' || input[i] == '+') && ft_isdigit(input[i + 1]))
 		i++;
 	while (input[i])
 	{
@@ -71,7 +79,7 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 	while (parameters[i])
 	{
 		inputs[i] = ft_long_long_atoi(parameters[i]);
-		if (!is_number(parameters[i]) || !is_int(inputs[i])
+		if (!is_number(parameters[i]) || !is_int(inputs[i], parameters[i])
 			|| is_double(inputs, i + 1))
 		{
 			free_array(parameters);
@@ -90,9 +98,7 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 
 	*nb_parameters = 0;
 	if (!av[1][0])
-	{
 		return (NULL);
-	}
 	if (ac == 2)
 	{
 		parameters = ft_split(av[1], ' ');
