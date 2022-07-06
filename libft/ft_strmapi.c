@@ -6,21 +6,11 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 16:29:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:14:55 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/05 16:08:00 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-static int	get_size(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
@@ -28,8 +18,8 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*result;
 
 	i = 0;
-	result = malloc((get_size(s) + 1) * sizeof(char));
-	if (result == NULL)
+	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	if (!result)
 		return (NULL);
 	while (s[i])
 	{

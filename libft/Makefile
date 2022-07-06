@@ -1,6 +1,7 @@
 NAME = libft.a
 
-CC = gcc -Wall -Wextra -Werror
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_atoi.c \
 	ft_bzero.c \
@@ -36,52 +37,54 @@ SRC = ft_atoi.c \
 	ft_substr.c \
 	ft_tolower.c \
 	ft_toupper.c \
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c\
+	ft_long_long_atoi.c \
+	ft_delete_content.c \
+	ft_free_array.c \
+	ft_print_bits.c \
+	ft_iswhitespace.c
 
 OBJ = $(SRC:.c=.o)
 
-BONUS_SRC = ft_lstadd_front_bonus.c \
-			ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstadd_back_bonus.c\
-
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
-
-ADD_SRC = ft_long_long_atoi.c \
-		ft_ps_lstnew.c \
+ADD_SRC = ft_ps_lstnew.c \
 		ft_ps_lstdelone.c \
 		ft_ps_lstclear.c \
 
 ADD_OBJ = $(ADD_SRC:.c=.o)
 
+LIBFT_BASE = libft_base.a
+PRINTF = ft_printf/libftprintf.a
+GNL = ft_get_next_line/libftgnl.a
+
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@echo "\033[33mMaking Libft - Base\033[0m"
-	@ar rc $(NAME) $^
+$(NAME) : $(OBJ) $(ADD_OBJ)
+	@$(MAKE) --no-print-directory -C ft_printf
+	@$(MAKE) --no-print-directory -C ft_get_next_line
+	@echo "\033[33mMaking Libft\033[0m"
+	@ar rc $(LIBFT_BASE) $^
+	@ar -rcT $(NAME) $(LIBFT_BASE) $(PRINTF) $(GNL)
 	@echo "\033[32mDone\033[0m"
 
 %.o : %.c
-	@$(CC) -c $^
-
-bonus : $(OBJ) $(BONUS_OBJ)
-	@echo "\033[33mMaking Libft - Bonus\033[0m"
-	@ar rc $(NAME) $^
-	@echo "\033[32mDone\033[0m"
-
-additional : $(OBJ) $(BONUS_OBJ) $(ADD_OBJ)
-	@echo "\033[33mMaking Libft - Additional\033[0m"
-	@ar rc $(NAME) $^
-	@echo "\033[32mDone\033[0m"
+	@$(CC) $(CFLAGS) -c $^
 
 clean :
+	@$(MAKE) --no-print-directory fclean -C ft_printf
+	@$(MAKE) --no-print-directory fclean -C ft_get_next_line
 	@echo "\033[35mCleaning Libft's objects...\033[0m"
-	@rm -f $(OBJ) $(BONUS_OBJ) $(ADD_OBJ)
+	@rm -f $(OBJ) $(ADD_OBJ)
 	@echo "\033[32mDone\033[0m"
 
 fclean : clean
 	@echo "\033[35mCleaning Libft...\033[0m"
+	@rm -f $(LIBFT_BASE)
 	@rm -f $(NAME)
+	@echo "\033[32mDone\033[0m"
 
 re : fclean all
 
-.PHONY : all bonus clean fclean re
+.PHONY : all clean fclean re

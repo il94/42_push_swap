@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:40:34 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:14:10 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/04 17:33:51 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,7 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	p = dest;
 	q = src;
 	i = 0;
-	while (i < n)
-	{
-		*p = *q;
-		p++;
-		q++;
-		i++;
-	}
+	while (i++ < n)
+		*p++ = *q++;
 	return (dest);
 }

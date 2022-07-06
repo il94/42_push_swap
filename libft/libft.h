@@ -6,12 +6,15 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:50:41 by ilandols          #+#    #+#             */
-/*   Updated: 2022/06/15 17:26:57 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 17:17:59 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+
+# include "ft_printf/ft_printf.h"
+# include "ft_get_next_line/get_next_line.h"
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -19,12 +22,12 @@
 typedef struct s_list
 {
 	int				content;
-	int				pos;
+	int				cost;
+	int				pos_final;
 	struct s_list	*next;
 }					t_list;
 
 /* added for push_swap */
-long long	ft_long_long_atoi(const char *nptr);
 t_list		*ft_ps_lstnew(int content, int position);
 void		ft_ps_lstdelone(t_list *lst, void (*del)(int *));
 void		ft_ps_lstclear(t_list **lst, void (*del)(int *));
@@ -63,11 +66,20 @@ void		ft_putchar_fd(char c, int fd);
 void		ft_putstr_fd(char *s, int fd);
 void		ft_putendl_fd(char *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
+t_list		*ft_lstnew(void *content);
 void		ft_lstadd_front(t_list **lst, t_list *new);
 int			ft_lstsize(t_list *lst);
 t_list		*ft_lstlast(t_list *lst);
 void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lstdelone(t_list *lst, void (*del)(void *));
+void		ft_lstclear(t_list **lst, void (*del)(void *));
 void		ft_lstiter(t_list *lst, void (*f)(void *));
 t_list		*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
+
+long long	ft_long_long_atoi(const char *nptr);
+void		ft_free_array(char **elements);
+void		ft_delete_content(int *content);
+void		ft_print_bits(int byte);
+int			ft_iswhitespace(int c);
 
 #endif

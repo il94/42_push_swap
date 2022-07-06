@@ -1,31 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_print_bits.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/11 08:53:12 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:07:20 by ilandols         ###   ########.fr       */
+/*   Created: 2022/07/04 15:43:05 by ilandols          #+#    #+#             */
+/*   Updated: 2022/07/06 15:18:23 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "libft.h"
 
-void	free_array(char **parameters)
+void	ft_print_bits(int byte)
 {
 	int	i;
+	int	oct;
 
-	i = 0;
-	while (parameters[i])
+	i = 32;
+	while (i--)
 	{
-		free(parameters[i]);
-		i++;
+		oct = byte >> i;
+		ft_printf("%d", oct & 1);
 	}
-	free(parameters);
-}
-
-void	delete_content(int *content)
-{
-	*content = 0;
 }

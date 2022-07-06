@@ -6,9 +6,16 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:44:08 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:13:16 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:39:49 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+
+static int	il_iswhitespace(int c)
+{
+	return ((c >= '\t' && c <= '\r') || c == ' ');
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -19,7 +26,7 @@ int	ft_atoi(const char *nptr)
 	i = 0;
 	symb = 1;
 	result = 0;
-	while ((nptr[i] >= '\t' && nptr[i] <= '\r') || nptr[i] == ' ')
+	while (il_iswhitespace(nptr[i]))
 		i++;
 	if (nptr[i] == '-')
 	{
@@ -28,10 +35,7 @@ int	ft_atoi(const char *nptr)
 	}
 	else if (nptr[i] == '+')
 		i++;
-	while (nptr[i] >= '0' && nptr[i] <= '9')
-	{
-		result = result * 10 + (nptr[i] - '0');
-		i++;
-	}
+	while (ft_isdigit(nptr[i]))
+		result = result * 10 + (nptr[i++] - '0');
 	return (result * symb);
 }

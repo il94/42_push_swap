@@ -6,14 +6,13 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:39:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:13:37 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:53:21 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isprint(int c)
 {
-	if (c >= 32 && c <= 126)
-		return (16384);
-	else
-		return (0);
+	return (c >= 32 && c <= 126);
 }

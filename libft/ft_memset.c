@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:40:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:14:15 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:32:40 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,7 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	p = s;
 	i = 0;
-	while (i < n)
-	{
-		*p = c;
-		p++;
-		i++;
-	}
+	while (i++ < n)
+		*p++ = c;
 	return (s);
 }

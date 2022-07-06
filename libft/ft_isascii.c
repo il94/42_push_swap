@@ -6,14 +6,13 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:39:33 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:13:31 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/04 15:50:33 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
 int	ft_isascii(int c)
 {
-	if (c >= 0 && c <= 127)
-		return (1);
-	else
-		return (0);
+	return (c >= 0 && c <= 127);
 }

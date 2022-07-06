@@ -6,16 +6,18 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 22:13:21 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:15:10 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:40:16 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	is_set(char c, char const *set)
+static int	is_charset(char c, char const *set)
 {
 	int	i;
 
+	if (!set)
+		return (0);
 	i = 0;
 	while (set[i])
 	{
@@ -26,44 +28,52 @@ static int	is_set(char c, char const *set)
 	return (0);
 }
 
-static int	get_size(char const *s, char const *set)
+int	get_size_result(char const *s, char const *set, int size_s1)
 {
+	int	to_trim;
 	int	i;
-	int	j;
 
-	i = 0;
-	j = 0;
-	while (s[i])
+	to_trim = 0;
+	i = 1;
+	while (s[size_s1 - i] && is_charset(s[size_s1 - i], set))
 	{
-		if (is_set(s[i], set))
-			j++;
+		to_trim++;
 		i++;
 	}
-	return (i - j);
+	if (to_trim == size_s1)
+		return (0);
+	i = 0;
+	while (s[i] && is_charset(s[i], set))
+	{
+		to_trim++;
+		i++;
+	}
+	return (size_s1 - to_trim);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
+	char	*result;
+	int		size_s1;
+	int		size_result;
 	int		i;
 	int		j;
-	int		size;
 
-	i = 0;
-	j = 0;
-	size = get_size(s1, set);
-	str = malloc((size + 1) * sizeof(char));
-	if (str == NULL)
+	if (!s1)
 		return (NULL);
-	while (j < size)
-	{
-		if (!is_set(s1[i], set))
-		{
-			str[j] = s1[i];
-			j++;
-		}
+	size_s1 = ft_strlen(s1);
+	size_result = get_size_result(s1, set, size_s1);
+	if (size_result < 0)
+		return (NULL);
+	result = malloc((size_result + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	i = 0;
+	while (s1[i] && is_charset(s1[i], set))
 		i++;
-	}
-	str[j] = '\0';
-	return (str);
+	j = 0;
+	while (j < size_result)
+		result[j++] = s1[i++];
+	result[j] = '\0';
+	return (result);
 }

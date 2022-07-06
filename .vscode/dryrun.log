@@ -1,0 +1,5 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/mnt/nfs/homes/ilandols/42/repo_perso/push_swap'
+make: Nothing to be done for 'all'.
+make: Leaving directory '/mnt/nfs/homes/ilandols/42/repo_perso/push_swap'
+ 

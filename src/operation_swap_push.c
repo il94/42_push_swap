@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 20:14:35 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:07:12 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 17:11:14 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ void	swap(t_list **lst, t_operation index)
 	if (*lst && (*lst)->next)
 	{
 		tmp->content = (*lst)->content;
-		tmp->pos = (*lst)->pos;
+		tmp->pos_final = (*lst)->pos_final;
 		(*lst)->content = (*lst)->next->content;
-		(*lst)->pos = (*lst)->next->pos;
+		(*lst)->pos_final = (*lst)->next->pos_final;
 		(*lst)->next->content = tmp->content;
-		(*lst)->next->pos = tmp->pos;
+		(*lst)->next->pos_final = tmp->pos_final;
 	}
 	free(tmp);
 	if (index == SA)
@@ -47,8 +47,8 @@ void	push(t_list **src, t_list **dest, t_operation index)
 	if (*src != NULL)
 	{
 		tmp = (*src)->next;
-		ft_lstadd_front(dest, ft_ps_lstnew((*src)->content, (*src)->pos));
-		ft_ps_lstdelone(*src, &delete_content);
+		ft_lstadd_front(dest, ft_ps_lstnew((*src)->content, (*src)->pos_final));
+		ft_ps_lstdelone(*src, &ft_delete_content);
 		*src = tmp;
 	}
 	if (index == PA)

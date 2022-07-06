@@ -6,14 +6,14 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:16:31 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 17:21:39 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "./libft/libft.h"
+# include "libft/libft.h"
 # include <stdlib.h>
 # include <limits.h>
 # include <unistd.h>
@@ -30,6 +30,9 @@ typedef enum e_operation
 	RRA,
 	RRB,
 }	t_operation;
+
+void	print_lists(t_list *lst_a, t_list *lst_b);
+void	print_all_bits(t_list *lst_a, t_list *lst_b);
 
 /* parsing.c */
 char	**get_parameters(int *nb_parameters, int ac, char **av);
@@ -51,10 +54,7 @@ void	sort_three(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_four(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
 void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list);
-
-/* utils.c */
-void	free_array(char **parameters);
-void	delete_content(int *content);
+void	sort(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* operation_swap_push.c */
 void	swap(t_list **lst, t_operation index);

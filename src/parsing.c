@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:07:15 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 13:39:09 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 		if (!is_number(parameters[i]) || !is_int(inputs[i], parameters[i])
 			|| is_double(inputs, i + 1))
 		{
-			free_array(parameters);
+			ft_free_array(parameters);
 			free(inputs);
 			return (0);
 		}
@@ -97,23 +97,12 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 	char	**parameters;
 
 	*nb_parameters = 0;
-	if (!av[1][0])
-		return (NULL);
-	if (ac == 2)
+	parameters = malloc(ac * sizeof(char *));
+	while (av[*nb_parameters + 1])
 	{
-		parameters = ft_split(av[1], ' ');
-		while (parameters[*nb_parameters])
-			(*nb_parameters)++;
+		parameters[*nb_parameters] = ft_strdup(av[*nb_parameters + 1]);
+		(*nb_parameters)++;
 	}
-	else
-	{
-		parameters = malloc(ac * sizeof(char *));
-		while (av[*nb_parameters + 1])
-		{
-			parameters[*nb_parameters] = ft_strdup(av[*nb_parameters + 1]);
-			(*nb_parameters)++;
-		}
-		parameters[*nb_parameters] = NULL;
-	}
+	parameters[*nb_parameters] = NULL;
 	return (parameters);
 }

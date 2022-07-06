@@ -6,63 +6,81 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 16:44:13 by ilandols          #+#    #+#             */
-/*   Updated: 2022/05/02 17:14:26 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/05 17:41:04 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	count_words(char const *s, char c, int *i)
+static void	il_free_array(char **elements)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	if (s[0] != '\0')
+	i = 0;
+	while (elements[i])
 	{
-		while (s[*i])
-		{
-			if (s[*i - 1] != c && s[*i] == c)
-				count++;
-			*i += 1;
-		}
-		if (s[*i - 1] != c && s[*i] == '\0')
-			count++;
-		*i = 0;
+		free(elements[i]);
+		i++;
 	}
-	return (count);
+	free(elements);
 }
 
-static int	get_word_size(char const *s, char c, int *i)
+static int	get_size_word(char const *s, char c, int index)
 {
-	int	size_word;
+	int	result;
 
-	size_word = 0;
-	while (s[*i] == c && s[*i])
-		*i += 1;
-	while (s[*i] != c && s[*i] != '\0')
+	result = 0;
+	while (s[index] && s[index] == c)
+		index++;
+	while (s[index] && s[index] != c)
 	{
-		size_word++;
-		*i += 1;
+		result++;
+		index++;
 	}
-	*i += 1;
-	return (size_word);
+	return (result);
 }
 
-static void	get_word(char const *s, char c, int *i, char *word)
+static char	*get_word(char const *s, char c, int *index, int size_word)
 {
-	int	j;
+	int		j;
+	char	*result;
 
 	j = 0;
-	while (s[*i] == c && s[*i])
-		*i += 1;
-	while (s[*i] != c && s[*i] != '\0')
+	result = malloc((size_word + 1) * sizeof(char));
+	if (!result)
+		return (NULL);
+	while (s[*index] && s[*index] == c)
+		*index += 1;
+	while (s[*index] && s[*index] != c)
 	{
-		word[j] = s[*i];
-		*i += 1;
+		result[j] = s[*index];
 		j++;
+		*index += 1;
 	}
-	word[j] = '\0';
-	*i += 1;
+	result[j] = '\0';
+	return (result);
+}
+
+static int	count_words(char const *s, char c)
+{
+	int	result;
+	int	i;
+
+	if (!s[0])
+		return (0);
+	if (!c)
+		return (1);
+	result = 0;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] && s[i] != c && s[i + 1] == c)
+			result++;
+		i++;
+	}
+	if (s[i - 1] != c)
+		result++;
+	return (result);
 }
 
 char	**ft_split(char const *s, char c)
@@ -71,24 +89,25 @@ char	**ft_split(char const *s, char c)
 	int		words;
 	int		i;
 	int		j;
-	int		k;
+	int		size_word;
 
-	i = 1;
-	words = count_words(s, c, &i);
+	words = count_words(s, c);
 	array = malloc((words + 1) * sizeof(char *));
-	if (array == NULL)
+	if (!array)
 		return (NULL);
-	if (s[0] == '\0')
-		array[0] = NULL;
-	j = -1;
-	k = 0;
-	while (++j < words)
+	i = 0;
+	j = 0;
+	while (i < words)
 	{
-		array[j] = malloc((get_word_size(s, c, &i) + 1) * sizeof(char));
-		if (array[j] == NULL)
+		size_word = get_size_word(s, c, j);
+		array[i] = get_word(s, c, &j, size_word);
+		if (!array[i])
+		{
+			il_free_array(array);
 			return (NULL);
-		get_word(s, c, &k, array[j]);
+		}
+		i++;
 	}
-	array[j] = NULL;
+	array[words] = NULL;
 	return (array);
 }

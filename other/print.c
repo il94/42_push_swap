@@ -12,13 +12,6 @@
 
 #include "../push_swap.h"
 
-/* Pour push_swap.h */
-/* print.c */
-/*
-void	print_lists(t_list *lst_a, t_list *lst_b);
-void	print_bits(int byte);
-void	print_all_bits(t_list *lst_a, t_list *lst_b);
-*/
 
 void	print_lists(t_list *lst_a, t_list *lst_b)
 {
@@ -27,31 +20,18 @@ void	print_lists(t_list *lst_a, t_list *lst_b)
 	{
 		if (lst_a != NULL)
 		{
-			printf("lst_a = %d -> pos = %d || ", lst_a->content, lst_a->pos);
+			printf("lst_a = %d -> pos_final = %d || ", lst_a->content, lst_a->pos_final);
 			lst_a = lst_a->next;
 		}
 		else
-			printf("                      || ");
+			printf("                           || ");
 		if (lst_b != NULL)
 		{
-			printf("lst_b = %d -> pos = %d\n", lst_b->content, lst_b->pos);
+			printf("lst_b = %d -> pos_final = %d\n", lst_b->content, lst_b->pos_final);
 			lst_b = lst_b->next;
 		}
 		else
 			printf("\n");
-	}
-}
-
-void	print_bits(int byte)
-{
-	int	i;
-	int	oct;
-
-	i = 32;
-	while (i--)
-	{
-		oct = byte >> i;
-		printf("%d", oct & 1);
 	}
 }
 
@@ -63,8 +43,8 @@ void	print_all_bits(t_list *lst_a, t_list *lst_b)
 		if (lst_a != NULL)
 		{
 			printf("lst_a = %d = ", (lst_a)->content);
-			print_bits((lst_a)->pos);
-			printf(" -> pos = %d || ", lst_a->pos);
+			ft_print_bits((lst_a)->pos_final);
+			printf(" -> pos_final = %d || ", lst_a->pos_final);
 			lst_a = lst_a->next;
 		}
 		else
@@ -72,8 +52,8 @@ void	print_all_bits(t_list *lst_a, t_list *lst_b)
 		if (lst_b != NULL)
 		{
 			printf("lst_b = %d = ", (lst_b)->content);
-			print_bits((lst_b)->pos);
-			printf(" -> pos = %d\n", lst_b->pos);
+			ft_print_bits((lst_b)->pos_final);
+			printf(" -> pos_final = %d\n", lst_b->pos_final);
 			lst_b = lst_b->next;
 		}
 		else

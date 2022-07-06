@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:35:50 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:07:17 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:11:11 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void	sort_three(t_list **lst_a, t_list **lst_b, int size_list)
 {
-	if ((*lst_a)->pos == size_list)
+	if ((*lst_a)->pos_final > (*lst_a)->next->pos_final && (*lst_a)->pos_final > (*lst_a)->next->next->pos_final)
 		rotate(lst_a, RA);
-	else if ((*lst_a)->next->pos == size_list)
+	else if ((*lst_a)->next->pos_final > (*lst_a)->pos_final && (*lst_a)->next->pos_final > (*lst_a)->next->next->pos_final)
 		reverse_rotate(lst_a, RRA);
-	if ((*lst_a)->pos > (*lst_a)->next->pos)
+	if ((*lst_a)->pos_final > (*lst_a)->next->pos_final)
 	{
 		if (is_sort(lst_b))
 			swap_ab(lst_a, lst_b);
@@ -31,12 +31,12 @@ void	sort_four(t_list **lst_a, t_list **lst_b, int size_list)
 {
 	if (sens_rotate(lst_a, 1, size_list))
 	{
-		while ((*lst_a)->pos != 1)
+		while ((*lst_a)->pos_final != 1)
 			rotate(lst_a, RA);
 	}
 	else
 	{
-		while ((*lst_a)->pos != 1)
+		while ((*lst_a)->pos_final != 1)
 			reverse_rotate(lst_a, RRA);
 	}
 	if (!is_sort(lst_a))
@@ -56,12 +56,12 @@ void	sort_five(t_list **lst_a, t_list **lst_b, int size_list)
 	{
 		if (sens_rotate(lst_a, target, size_list))
 		{
-			while ((*lst_a)->pos != target)
+			while ((*lst_a)->pos_final != target)
 				rotate(lst_a, RA);
 		}
 		else
 		{
-			while ((*lst_a)->pos != target)
+			while ((*lst_a)->pos_final != target)
 				reverse_rotate(lst_a, RRA);
 		}
 		push(lst_a, lst_b, PB);
@@ -70,7 +70,7 @@ void	sort_five(t_list **lst_a, t_list **lst_b, int size_list)
 		target++;
 	}
 	sort_three(lst_a, lst_b, size_list);
-	if ((*lst_b)->pos < (*lst_b)->next->pos)
+	if ((*lst_b)->pos_final < (*lst_b)->next->pos_final)
 		swap(lst_b, SB);
 	while (*lst_b)
 		push(lst_b, lst_a, PA);
@@ -87,7 +87,7 @@ void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list)
 	{
 		while (bit < size_list && (*lst_a))
 		{
-			if (!(((*lst_a)->pos >> move) & 1))
+			if (!(((*lst_a)->pos_final >> move) & 1))
 				push(lst_a, lst_b, PB);
 			else
 				rotate(lst_a, RA);
@@ -111,5 +111,6 @@ void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters)
 	else if (nb_parameters == 5)
 		sort_five(lst_a, lst_b, nb_parameters);
 	else
-		radix_sort(lst_a, lst_b, nb_parameters);
+		sort(lst_a, lst_b, nb_parameters);
+		// radix_sort(lst_a, lst_b, nb_parameters);
 }

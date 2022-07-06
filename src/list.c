@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/03 03:06:53 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/06 18:11:20 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	compare_two_min_position(t_list **lst, int size_list)
 	counter = 0;
 	while (*lst)
 	{
-		if ((*lst)->pos == 1)
+		if ((*lst)->pos_final == 1)
 		{
 			targets[1] = counter;
 			if (targets[1] > 2)
 				targets[1] = size_list - targets[1];
 		}
-		if ((*lst)->pos == 2)
+		if ((*lst)->pos_final == 2)
 		{
 			targets[2] = counter;
 			if (targets[2] > 2)
@@ -48,7 +48,7 @@ int	sens_rotate(t_list **lst, int target, int size_list)
 
 	start = *lst;
 	counter = 0;
-	while (target != (*lst)->pos && target != size_list)
+	while (target != (*lst)->pos_final && target != size_list)
 	{
 		counter++;
 		if ((*lst)->next == NULL)
@@ -72,11 +72,11 @@ void	get_positions(t_list **lst)
 	tmp = *lst;
 	while (*lst)
 	{
-		(*lst)->pos = 1;
+		(*lst)->pos_final = 1;
 		while (tmp)
 		{
 			if ((*lst)->content > tmp->content)
-				(*lst)->pos++;
+				(*lst)->pos_final++;
 			tmp = tmp->next;
 		}
 		*lst = (*lst)->next;
