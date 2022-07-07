@@ -20,6 +20,7 @@ t_list	*ft_ps_lstnew(int content, int position)
 	if (element == NULL)
 		return (0);
 	element->content = content;
+	element->cost = 0;
 	element->pos_final = position;
 	element->next = NULL;
 	return (element);

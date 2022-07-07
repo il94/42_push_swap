@@ -20,14 +20,14 @@ void	print_lists(t_list *lst_a, t_list *lst_b)
 	{
 		if (lst_a != NULL)
 		{
-			printf("lst_a = %d -> pos_final = %d || ", lst_a->content, lst_a->pos_final);
+			printf("lst_a = %d -> cost = %d -> final = %d || ", lst_a->content, lst_a->cost, lst_a->pos_final);
 			lst_a = lst_a->next;
 		}
 		else
-			printf("                           || ");
+			printf("                                   || ");
 		if (lst_b != NULL)
 		{
-			printf("lst_b = %d -> pos_final = %d\n", lst_b->content, lst_b->pos_final);
+			printf("lst_b = %d -> cost = %d -> final = %d\n", lst_b->content, lst_b->cost, lst_b->pos_final);
 			lst_b = lst_b->next;
 		}
 		else

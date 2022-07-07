@@ -1,5 +1,15 @@
 make --dry-run --keep-going --print-directory
 make: Entering directory '/mnt/nfs/homes/ilandols/42/repo_perso/push_swap'
-make: Nothing to be done for 'all'.
+gcc -c src/sort.c
+ 
+gcc -c src/temp.c
+ 
+make --no-print-directory -C libft
+ 
+make[1]: Nothing to be done for 'all'.
+ 
+echo "\033[36mMaking Push Swap\033[0m"
+gcc main.o push_swap.o parsing.o list.o operation_swap_push.o operation_rotate_reverse.o sort.o other/print.o temp.o -L libft/. -lft -o push_swap
+echo "\033[32mDone\033[0m"
 make: Leaving directory '/mnt/nfs/homes/ilandols/42/repo_perso/push_swap'
  

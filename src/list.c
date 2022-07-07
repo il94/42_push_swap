@@ -6,29 +6,31 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/06 18:11:20 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/07 16:14:05 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	compare_two_min_position(t_list **lst, int size_list)
+int	compare_two_min_position(t_list **lst)
 {
 	t_list	*start;
 	int		counter;
 	int		targets[3];
+	int		size_list;
 
 	start = *lst;
 	counter = 0;
+	size_list = ft_lstsize(*lst);
 	while (*lst)
 	{
-		if ((*lst)->pos_final == 1)
+		if ((*lst)->pos_final == get_min_position(*lst))
 		{
 			targets[1] = counter;
 			if (targets[1] > 2)
 				targets[1] = size_list - targets[1];
 		}
-		if ((*lst)->pos_final == 2)
+		if ((*lst)->pos_final == get_second_position(*lst))
 		{
 			targets[2] = counter;
 			if (targets[2] > 2)
@@ -41,13 +43,15 @@ int	compare_two_min_position(t_list **lst, int size_list)
 	return ((targets[1] > targets[2]) + 1);
 }
 
-int	sens_rotate(t_list **lst, int target, int size_list)
+int	sens_rotate(t_list **lst, int target)
 {
 	t_list	*start;
 	int		counter;
+	int		size_list;
 
 	start = *lst;
 	counter = 0;
+	size_list = ft_lstsize(*lst);
 	while (target != (*lst)->pos_final && target != size_list)
 	{
 		counter++;
@@ -73,6 +77,7 @@ void	get_positions(t_list **lst)
 	while (*lst)
 	{
 		(*lst)->pos_final = 1;
+		(*lst)->cost = 0;
 		while (tmp)
 		{
 			if ((*lst)->content > tmp->content)

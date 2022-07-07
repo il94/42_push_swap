@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/06 15:58:56 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/07 18:17:29 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,10 @@ int	main(int ac, char **av)
 		get_list(&lst_a, nb_parameters, parameters);
 		ft_free_array(parameters);
 		get_positions(&lst_a);
+		print_lists(lst_a, lst_b);
 		if (!is_sort(&lst_a))
 			push_swap(&lst_a, &lst_b, nb_parameters);
+		print_lists(lst_a, lst_b);
 		ft_ps_lstclear(&lst_a, &ft_delete_content);
 	}
 	else

@@ -11,7 +11,8 @@ SRC = main.c \
 		operation_swap_push.c \
 		operation_rotate_reverse.c \
 		sort.c \
-		other/print.c
+		other/print.c \
+		temp.c
 		
 OBJ = $(SRC:.c=.o)
 

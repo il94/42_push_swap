@@ -25,6 +25,8 @@ void	ft_ps_lstclear(t_list **lst, void (*del)(int *))
 		{
 			temp = (*lst)->next;
 			del(&(*lst)->content);
+			del(&(*lst)->cost);
+			del(&(*lst)->pos_final);
 			free(*lst);
 			*lst = temp;
 		}

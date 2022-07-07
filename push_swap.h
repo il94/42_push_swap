@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/06 17:21:39 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/07 14:22:54 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@ typedef enum e_operation
 void	print_lists(t_list *lst_a, t_list *lst_b);
 void	print_all_bits(t_list *lst_a, t_list *lst_b);
 
+/* temp.c */
+int	get_min_position(t_list *lst);
+int	get_max_position(t_list *lst);
+int	get_second_position(t_list *lst);
+int	is_min(t_list *lst, int element);
+int	is_max(t_list *lst, int element);
+int	is_3_max(t_list *lst, int element);
+
 /* parsing.c */
 char	**get_parameters(int *nb_parameters, int ac, char **av);
 int		is_valid_inputs(int nb_parameters, char **parameters);
@@ -45,14 +53,14 @@ int		is_double(long long *inputs, int size);
 void	get_list(t_list **lst, int nb_parameters, char **parameters);
 void	get_positions(t_list **lst);
 int		is_sort(t_list **lst);
-int		compare_two_min_position(t_list **lst, int size_list);
-int		sens_rotate(t_list **lst, int position, int size_list);
+int		compare_two_min_position(t_list **lst);
+int		sens_rotate(t_list **lst, int position);
 
 /* push_swap.c */
 void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters);
-void	sort_three(t_list **lst_a, t_list **lst_b, int size_list);
-void	sort_four(t_list **lst_a, t_list **lst_b, int size_list);
-void	sort_five(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_three(t_list **lst_a, t_list **lst_b);
+void	sort_four(t_list **lst_a, t_list **lst_b);
+void	sort_five(t_list **lst_a, t_list **lst_b);
 void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort(t_list **lst_a, t_list **lst_b, int size_list);
 
