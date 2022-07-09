@@ -1,6 +1,0 @@
-{
-	"makefile.extensionOutputFolder": "./.vscode",
-	"files.associations": {
-		"push_swap.h": "c"
-	}
-}
