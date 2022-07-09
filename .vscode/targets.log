@@ -6,9 +6,10 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jul  7 14:23:11 2022
+# Make data base, printed on Sat Jul  9 10:57:59 2022
 
 # Variables
+ 
 
 # automatic
 <D = $(patsubst %/,%,$(dir $<))
@@ -49,7 +50,7 @@ _ = /usr/share/code/code
 # makefile (from 'Makefile', line 4)
 CFLAGS = -Wall -Wextra -Werror
 # environment
-JOURNAL_STREAM = 9:440679
+JOURNAL_STREAM = 9:143496
 # environment
 XDG_CONFIG_DIRS = /etc/xdg/xdg-ubuntu:/etc/xdg
 # makefile (from 'Makefile', line 1)
@@ -69,15 +70,15 @@ DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/101934/bus
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-MANAGERPID = 109422
+MANAGERPID = 29104
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/101934/vscode-ipc-5800791c-ce7c-40ce-9e0f-76a929a7eaad.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/101934/vscode-ipc-b2e7108e-67e1-48d9-bd9c-b86672239d5c.sock
 # environment
 VSCODE_CWD = /mnt/nfs/homes/ilandols
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session4
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session0
 # environment
-KRB5CCNAME = FILE:/tmp/krb5cc_101934_k09NEh
+KRB5CCNAME = FILE:/tmp/krb5cc_101934_np4YVB
 # default
 MAKE_HOST := x86_64-pc-linux-gnu
 # environment
@@ -87,7 +88,7 @@ GPG_AGENT_INFO = /run/user/101934/gnupg/S.gpg-agent:0:1
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-SESSION_MANAGER = local/e1r4p12.42.fr:@/tmp/.ICE-unix/109928,unix/e1r4p12.42.fr:/tmp/.ICE-unix/109928
+SESSION_MANAGER = local/e1r3p12.clusters.42paris.fr:@/tmp/.ICE-unix/29620,unix/e1r3p12.clusters.42paris.fr:/tmp/.ICE-unix/29620
 # environment
 XDG_RUNTIME_DIR = /run/user/101934
 # environment
@@ -97,7 +98,7 @@ VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # environment
-INVOCATION_ID = 850372cd2a4048f99394ffee7f1b80b4
+INVOCATION_ID = 509af276be0c4acd8494429a3dfcad94
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell archives jobserver output-sync check-symlink load
 # environment
@@ -109,7 +110,7 @@ XDG_SESSION_DESKTOP = ubuntu
 # environment
 SSH_AUTH_SOCK = /run/user/101934/keyring/ssh
 # environment
-GIO_LAUNCHED_DESKTOP_FILE_PID = 110765
+GIO_LAUNCHED_DESKTOP_FILE_PID = 30425
 # automatic
 %F = $(notdir $%)
 # environment
@@ -121,7 +122,7 @@ PWD = /mnt/nfs/homes/ilandols/42/repo_perso/push_swap
 # default
 .LOADED := 
 # environment
-SSH_AGENT_PID = 109892
+SSH_AGENT_PID = 29584
 # environment
 ORIGINAL_XDG_CURRENT_DESKTOP = ubuntu:GNOME
 # environment
@@ -231,9 +232,9 @@ LANG = C
 # environment
 DOCKER_HOST = unix:///run/user/101934/docker.sock
 # environment
-VSCODE_PID = 110765
+VSCODE_PID = 30425
 # variable set hash-table stats:
-# Load=111/1024=11%, Rehash=0, Collisions=17/145=12%
+# Load=111/1024=11%, Rehash=0, Collisions=17/141=12%
 
 # Pattern-specific Variable Values
 
@@ -241,10 +242,11 @@ VSCODE_PID = 110765
 
 # Directories
 
-# . (device 59, inode 2261688): 18 files, no impossibilities.
-# src (device 59, inode 16614503): 10 files, no impossibilities so far.
+# . (device 55, inode 2261688): 23 files, no impossibilities.
+# other/src (device 0, inode 0): No files, 1 impossibilities.
+# src (device 55, inode 16614503): 10 files, no impossibilities so far.
 
-# 28 files, no impossibilities in 2 directories.
+# 33 files, 1 impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -257,15 +259,12 @@ VSCODE_PID = 110765
 # Files
 
 all: push_swap
- 
 #  Phony target (prerequisite of .PHONY).
 #  Command line target.
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  Successfully updated.
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
@@ -275,7 +274,7 @@ all: push_swap
 operation_rotate_reverse.o: src/operation_rotate_reverse.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'operation_rotate_reverse'
-#  Last modified 2022-07-07 12:47:35.984219632
+#  Last modified 2022-07-08 17:19:05.339837057
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
@@ -284,7 +283,15 @@ operation_rotate_reverse.o: src/operation_rotate_reverse.c
 # Not a target:
 src/operation_swap_push.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-06 17:11:14.834296572
+#  Last modified 2022-07-07 16:12:47.36877272
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+src/temp.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-07-08 19:59:06.864870296
+ 
 #  File has been updated.
 #  Successfully updated.
 
@@ -298,41 +305,23 @@ Makefile:
 sort.o: src/sort.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'sort'
-#  Last modified 2022-07-07 14:18:47.959127147
+#  Last modified 2022-07-08 19:59:44.889827729
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := sort.o
-# automatic
-# % := 
-# automatic
-# * := sort
-# automatic
-# + := src/sort.c
-# automatic
-# | := 
-# automatic
-# < := src/sort.c
-# automatic
-# ^ := src/sort.c
-# automatic
-# ? := src/sort.c
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/13=8%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
 	@$(CC) -c $^
 
 # Not a target:
 src/sort.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-07 14:21:17.016963531
+#  Last modified 2022-07-08 19:59:36.684836914
 #  File has been updated.
 #  Successfully updated.
 
 # Not a target:
 src/list.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-07 13:55:11.932699598
+#  Last modified 2022-07-08 12:10:33.443126695
 #  File has been updated.
 #  Successfully updated.
 
@@ -356,14 +345,14 @@ fclean: clean
 # Not a target:
 src/main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-07 14:05:17.833024095
+#  Last modified 2022-07-08 19:59:19.323856349
 #  File has been updated.
 #  Successfully updated.
 
 operation_swap_push.o: src/operation_swap_push.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'operation_swap_push'
-#  Last modified 2022-07-07 12:47:35.93621968
+#  Last modified 2022-07-08 17:19:05.297837107
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
@@ -401,14 +390,15 @@ clean:
 
 # Not a target:
 other/print.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+#  Implicit rule search has been done.
+#  Last modified 2022-07-08 17:19:05.424836956
+#  File has been updated.
+#  Successfully updated.
 
 push_swap.o: src/push_swap.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'push_swap'
-#  Last modified 2022-07-07 14:23:05.932843977
+#  Last modified 2022-07-08 17:19:05.158837273
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
@@ -416,11 +406,9 @@ push_swap.o: src/push_swap.c
 
 push_swap: main.o push_swap.o parsing.o list.o operation_swap_push.o operation_rotate_reverse.o sort.o other/print.o temp.o
 #  Implicit rule search has not been done.
-#  Last modified 2022-07-07 14:18:48.02912707
+#  Last modified 2022-07-08 19:59:44.965827644
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+#  Successfully updated.
 #  recipe to execute (from 'Makefile', line 22):
 	@$(MAKE) --no-print-directory -C libft
 	@echo "\033[36mMaking Push Swap\033[0m"
@@ -430,7 +418,7 @@ push_swap: main.o push_swap.o parsing.o list.o operation_swap_push.o operation_r
 list.o: src/list.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'list'
-#  Last modified 2022-07-07 13:55:13.696697616
+#  Last modified 2022-07-08 17:19:05.255837157
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
@@ -439,7 +427,7 @@ list.o: src/list.c
 main.o: src/main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'main'
-#  Last modified 2022-07-07 14:05:18.4590234
+#  Last modified 2022-07-08 19:59:44.832827793
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
@@ -448,39 +436,42 @@ main.o: src/main.c
 # Not a target:
 src/operation_rotate_reverse.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-06 17:10:49.767327519
+#  Last modified 2022-07-07 16:11:35.787852887
 #  File has been updated.
 #  Successfully updated.
 
-# Not a target:
-temp.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+temp.o: src/temp.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: 'temp'
+#  Last modified 2022-07-08 19:59:10.45286628
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 28):
+	@$(CC) -c $^
 
 parsing.o: src/parsing.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: 'parsing'
-#  Last modified 2022-07-07 12:47:35.843219773
+#  Last modified 2022-07-08 17:19:05.20283722
 #  File has been updated.
 #  Successfully updated.
 #  recipe to execute (from 'Makefile', line 28):
 	@$(CC) -c $^
 
 # files hash-table stats:
-# Load=25/1024=2%, Rehash=0, Collisions=0/75=0%
+# Load=26/1024=3%, Rehash=0, Collisions=0/81=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 52 / storage = 566 B / avg = 10 B
-# current buf: size = 8162 B / used = 566 B / count = 52 / avg = 10 B
+# strcache buffers: 1 (0) / strings = 61 / storage = 687 B / avg = 11 B
+# current buf: size = 8162 B / used = 687 B / count = 61 / avg = 11 B
 
-# strcache performance: lookups = 90 / hit rate = 42%
+# strcache performance: lookups = 102 / hit rate = 40%
 # hash-table stats:
-# Load=52/8192=1%, Rehash=0, Collisions=2/90=2%
-# Finished Make data base on Thu Jul  7 14:23:11 2022
+# Load=61/8192=1%, Rehash=0, Collisions=2/102=2%
+# Finished Make data base on Sat Jul  9 10:57:59 2022
 
  

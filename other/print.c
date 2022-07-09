@@ -12,7 +12,6 @@
 
 #include "../push_swap.h"
 
-
 void	print_lists(t_list *lst_a, t_list *lst_b)
 {
 	printf("============PRINT LIST============\n");

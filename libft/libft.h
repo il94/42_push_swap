@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/11 00:50:41 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/07 16:13:20 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/09 17:11:03 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ typedef struct s_list
 {
 	int				content;
 	int				cost;
+	int				cost_a;
+	int				cost_b;
 	int				pos_final;
 	struct s_list	*next;
 }					t_list;

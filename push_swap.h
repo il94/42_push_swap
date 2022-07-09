@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/07 14:22:54 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/09 13:33:10 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ void	print_lists(t_list *lst_a, t_list *lst_b);
 void	print_all_bits(t_list *lst_a, t_list *lst_b);
 
 /* temp.c */
-int	get_min_position(t_list *lst);
-int	get_max_position(t_list *lst);
-int	get_second_position(t_list *lst);
-int	is_min(t_list *lst, int element);
-int	is_max(t_list *lst, int element);
-int	is_3_max(t_list *lst, int element);
+int		is_sort_reverse(t_list **lst);
+int		is_last(t_list **lst, int element);
+int		get_insert_place(t_list **lst, int element);
+int		get_min_cost(t_list *lst);
+int		get_min_position(t_list *lst);
+int		get_max_position(t_list *lst);
+int		get_second_position(t_list *lst);
+int		is_min(t_list *lst, int element);
+int		is_max(t_list *lst, int element);
+int		is_3_max(t_list *lst, int element);
 
 /* parsing.c */
 char	**get_parameters(int *nb_parameters, int ac, char **av);
