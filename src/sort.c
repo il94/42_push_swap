@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/06 16:54:24 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/09 22:23:52 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/11 01:28:42 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@ void	push_cost(t_list **lst_a, t_list **lst_b)
 
 	target = get_min_cost(*lst_b);
 	insert_place = get_insert_place(lst_a, target);
+	// printf("ip = %d\n", insert_place);
 	if ((*lst_b)->pos_final == target)
 	{
 		if (sens_rotate(lst_a, insert_place))
 		{
-			while (!is_last(lst_a, insert_place))
+			while ((*lst_a)->pos_final != insert_place)
 				rotate(lst_a, RA);
 			push(lst_b, lst_a, PA);
 		}
 		else
 		{
-			while (!is_last(lst_a, insert_place))
+			while ((*lst_a)->pos_final != insert_place)
 				reverse_rotate(lst_a, RRA);
 			push(lst_b, lst_a, PA);
 		}
@@ -39,12 +40,12 @@ void	push_cost(t_list **lst_a, t_list **lst_b)
 	{
 		if (sens_rotate(lst_b, target))
 		{
-			while ((*lst_b)->pos_final != target)
+			while ((*lst_a)->pos_final != insert_place)
 				rotate(lst_b, RB);
 		}
 		else
 		{
-			while ((*lst_b)->pos_final != target)
+			while ((*lst_b)->pos_final != insert_place)
 				reverse_rotate(lst_b, RRB);
 		}
 	}
@@ -54,34 +55,33 @@ void	get_costs(t_list *lst_a, t_list *lst_b)
 {
 	t_list	*tmp_a;
 	int		size_list_b;
+	int		size_list_a;
 	int		index_list_b;
+	int		index_list_a;
 	int		target;
 
 	tmp_a = lst_a;
 	size_list_b = ft_lstsize(lst_b);
 	index_list_b = 0;
+	size_list_a = ft_lstsize(lst_a);
+	index_list_a = 0;
 	while (lst_b)
 	{
 		lst_b->cost = 0;
-			target = get_insert_place(&lst_a, lst_b->pos_final);
-			while (tmp_a && tmp_a->pos_final <= target)
-			{
-				lst_b->cost += 1;
-				tmp_a = tmp_a->next;
-			}
-			if (lst_b->cost == 0 && target != ft_lstlast(lst_a)->pos_final)
-			{
-				tmp_a = lst_a;
-				while (tmp_a && tmp_a->pos_final >= target)
-				{
-					lst_b->cost += 1;
-					tmp_a = tmp_a->next;
-				}
-			}
-			if (index_list_b <= size_list_b / 2)
-				lst_b->cost += index_list_b;
-			else
-				lst_b->cost += (size_list_b - index_list_b);
+		target = get_insert_place(&lst_a, lst_b->pos_final);
+		printf("target = %d\n", target);
+		while (tmp_a && tmp_a->pos_final != target)
+		{
+			lst_b->cost += 1;
+			tmp_a = tmp_a->next;
+			// printf("cost = %d\n", lst_b->cost);
+		}
+		if (lst_b->cost >= size_list_a / 2)
+			lst_b->cost = size_list_a - lst_b->cost + 1;
+		if (index_list_b <= size_list_b / 2)
+			lst_b->cost += index_list_b;
+		else
+			lst_b->cost += (size_list_b - index_list_b);
 		index_list_b++;
 		lst_b = lst_b->next;
 		tmp_a = lst_a;
@@ -116,14 +116,15 @@ void	sort(t_list **lst_a, t_list **lst_b, int size_list)
 	while (*lst_b)
 	{
 		get_costs(*lst_a, *lst_b);
-		// print_lists(*lst_a, *lst_b);
+		print_lists(*lst_a, *lst_b);
 		while ((*lst_b)->cost == 0 && ft_lstsize(*lst_b) != 1) /* push une suite (a verifier) */
 		{
 			push(lst_b, lst_a, PA);
 			get_costs(*lst_a, *lst_b);
+			print_lists(*lst_a, *lst_b);
 		}
 		// printf("==============START=============\n");
-		// print_lists(*lst_a, *lst_b);
+		print_lists(*lst_a, *lst_b);
 		push_cost(lst_a, lst_b);
 		// printf("==============END=============\n");
 		// push(lst_b, lst_a, PA); /* debug */
@@ -131,13 +132,13 @@ void	sort(t_list **lst_a, t_list **lst_b, int size_list)
 
 /*============================================================================*/
 	}
-	while (!is_sort(lst_a))
-	{
-		// print_lists(*lst_a, *lst_b);
-		if (sens_rotate(lst_a, get_min_position(*lst_a)))
-			rotate(lst_a, RA);
-		else
-			reverse_rotate(lst_a, RRA);
-	}
+	// while (!is_sort(lst_a))
+	// {
+	// 	print_lists(*lst_a, *lst_b);
+	// 	if (sens_rotate(lst_a, get_min_position(*lst_a)))
+	// 		rotate(lst_a, RA);
+	// 	else
+	// 		reverse_rotate(lst_a, RRA);
+	// }
 
 }

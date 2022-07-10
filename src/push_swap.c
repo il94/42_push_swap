@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 18:35:50 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/09 15:44:34 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/11 01:09:21 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	sort_three(t_list **lst_a, t_list **lst_b)
 		reverse_rotate(lst_a, RRA);
 	if ((*lst_a)->pos_final > (*lst_a)->next->pos_final)
 	{
-		if ((*lst_b)->pos_final < (*lst_b)->next->pos_final && (*lst_b)->pos_final != get_min_position(*lst_b))
+		if (*lst_b && (*lst_b)->pos_final < (*lst_b)->next->pos_final && (*lst_b)->pos_final != get_min_position(*lst_b))
 			swap_ab(lst_a, lst_b);
 		else
 			swap(lst_a, SA);

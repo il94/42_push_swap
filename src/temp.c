@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/07 14:21:18 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/09 20:24:47 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/11 01:45:08 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,31 @@ int	get_insert_place(t_list **lst, int element)
 	start = *lst;
 	result = (*lst)->pos_final;
 	if (element < get_min_position(*lst))
-		result = get_max_position(*lst);
+	{
+		// if (is_sort(lst))
+			result = get_min_position(*lst);
+		// else
+		// 	result = get_max_position(*lst);
+	}
 	else
 	{
 		while ((*lst)->next)
 		{
 			if (element > (*lst)->pos_final && element < (*lst)->next->pos_final)
-				result = (*lst)->pos_final;
+				result = (*lst)->next->pos_final;
 			*lst = (*lst)->next;
 		}
+		printf("test = %d\n", result);
 		if (element > (*lst)->pos_final && element < start->pos_final)
-			result = (*lst)->pos_final;
-		if (result > element)
+		{
+			// printf("IF\n");
 			result = start->pos_final;
+		}
+		if (result > element)
+		{
+			printf("IF\n");
+			result = start->pos_final;
+		}
 		*lst = start;
 	}
 	return (result);
