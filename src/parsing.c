@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/06 13:39:09 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/13 17:02:12 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,8 @@ char	**get_parameters(int *nb_parameters, int ac, char **av)
 
 	*nb_parameters = 0;
 	parameters = malloc(ac * sizeof(char *));
+	if (!parameters)
+		return (NULL);
 	while (av[*nb_parameters + 1])
 	{
 		parameters[*nb_parameters] = ft_strdup(av[*nb_parameters + 1]);

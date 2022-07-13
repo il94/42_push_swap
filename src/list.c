@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 18:47:16 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/08 12:10:33 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/13 18:23:03 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,24 +17,22 @@ int	compare_two_min_position(t_list **lst)
 	t_list	*start;
 	int		counter;
 	int		targets[3];
-	int		size_list;
 
 	start = *lst;
 	counter = 0;
-	size_list = ft_lstsize(*lst);
 	while (*lst)
 	{
-		if ((*lst)->pos_final == get_min_position(*lst))
+		if ((*lst)->final == get_min_position(*lst))
 		{
 			targets[1] = counter;
 			if (targets[1] > 2)
-				targets[1] = size_list - targets[1];
+				targets[1] = ft_lstsize(*lst) - targets[1];
 		}
-		if ((*lst)->pos_final == get_second_position(*lst))
+		if ((*lst)->final == get_second_position(*lst))
 		{
 			targets[2] = counter;
 			if (targets[2] > 2)
-				targets[2] = size_list - targets[2];
+				targets[2] = ft_lstsize(*lst) - targets[2];
 		}
 		counter++;
 		(*lst) = (*lst)->next;
@@ -52,7 +50,7 @@ int	sens_rotate(t_list **lst, int target)
 	start = *lst;
 	counter = 0;
 	size_list = ft_lstsize(*lst);
-	while (target != (*lst)->pos_final && target != size_list)
+	while (target != (*lst)->final && target != size_list)
 	{
 		counter++;
 		if ((*lst)->next == NULL)
@@ -76,12 +74,12 @@ void	get_positions(t_list **lst)
 	tmp = *lst;
 	while (*lst)
 	{
-		(*lst)->pos_final = 1;
+		(*lst)->final = 1;
 		(*lst)->cost = 0;
 		while (tmp)
 		{
-			if ((*lst)->content > tmp->content)
-				(*lst)->pos_final++;
+			if ((*lst)->data > tmp->data)
+				(*lst)->final++;
 			tmp = tmp->next;
 		}
 		*lst = (*lst)->next;
@@ -99,7 +97,7 @@ int	is_sort(t_list **lst)
 		return (1);
 	while ((*lst)->next)
 	{
-		if ((*lst)->content > (*lst)->next->content)
+		if ((*lst)->data > (*lst)->next->data)
 		{
 			*lst = tmp;
 			return (0);

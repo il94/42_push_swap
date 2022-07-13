@@ -18,9 +18,9 @@ void	ft_ps_lstdelone(t_list *lst, void (*del)(int *))
 		return ;
 	else
 	{
-		del(&lst->content);
+		del(&lst->data);
 		del(&lst->cost);
-		del(&lst->pos_final);
+		del(&lst->final);
 		free(lst);
 	}
 }

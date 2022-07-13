@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/09 13:33:10 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:33:08 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters);
 void	sort_three(t_list **lst_a, t_list **lst_b);
 void	sort_four(t_list **lst_a, t_list **lst_b);
 void	sort_five(t_list **lst_a, t_list **lst_b);
-void	radix_sort(t_list **lst_a, t_list **lst_b, int size_list);
-void	sort(t_list **lst_a, t_list **lst_b, int size_list);
+void	sort_big(t_list **lst_a, t_list **lst_b, int size_list);
 
 /* operation_swap_push.c */
 void	swap(t_list **lst, t_operation index);

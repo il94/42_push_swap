@@ -12,18 +12,16 @@
 
 #include "libft.h"
 
-t_list	*ft_ps_lstnew(int content, int position)
+t_list	*ft_ps_lstnew(int data, int position)
 {
 	t_list	*element;
 
 	element = malloc(sizeof(*element));
 	if (element == NULL)
 		return (0);
-	element->content = content;
+	element->data = data;
 	element->cost = 0;
-	element->cost_a = 0;
-	element->cost_b = 0;
-	element->pos_final = position;
+	element->final = position;
 	element->next = NULL;
 	return (element);
 }
