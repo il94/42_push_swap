@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:54:15 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/13 17:02:12 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/17 17:12:18 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 		if (!is_number(parameters[i]) || !is_int(inputs[i], parameters[i])
 			|| is_double(inputs, i + 1))
 		{
-			ft_free_array(parameters);
 			free(inputs);
 			return (0);
 		}
@@ -90,21 +89,4 @@ int	is_valid_inputs(int nb_parameters, char **parameters)
 	}
 	free(inputs);
 	return (1);
-}
-
-char	**get_parameters(int *nb_parameters, int ac, char **av)
-{
-	char	**parameters;
-
-	*nb_parameters = 0;
-	parameters = malloc(ac * sizeof(char *));
-	if (!parameters)
-		return (NULL);
-	while (av[*nb_parameters + 1])
-	{
-		parameters[*nb_parameters] = ft_strdup(av[*nb_parameters + 1]);
-		(*nb_parameters)++;
-	}
-	parameters[*nb_parameters] = NULL;
-	return (parameters);
 }

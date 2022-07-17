@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:41:53 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/11 14:33:08 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:43:18 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,11 @@
 
 # include "libft/libft.h"
 # include <stdlib.h>
-# include <limits.h>
 # include <unistd.h>
+# include <limits.h>
 
 typedef enum e_operation
 {
-	NOTHING,
 	SA,
 	SB,
 	PA,
@@ -29,53 +28,44 @@ typedef enum e_operation
 	RB,
 	RRA,
 	RRB,
+	LSTA,
+	LSTB
 }	t_operation;
 
-void	print_lists(t_list *lst_a, t_list *lst_b);
-void	print_all_bits(t_list *lst_a, t_list *lst_b);
-
-/* temp.c */
-int		is_sort_reverse(t_list **lst);
-int		is_last(t_list **lst, int element);
-int		get_insert_place(t_list **lst, int element);
-int		get_min_cost(t_list *lst);
-int		get_min_position(t_list *lst);
-int		get_max_position(t_list *lst);
-int		get_second_position(t_list *lst);
-int		is_min(t_list *lst, int element);
-int		is_max(t_list *lst, int element);
-int		is_3_max(t_list *lst, int element);
-
-/* parsing.c */
-char	**get_parameters(int *nb_parameters, int ac, char **av);
-int		is_valid_inputs(int nb_parameters, char **parameters);
-int		is_number(char *input);
-int		is_int(long long value, char *input);
-int		is_double(long long *inputs, int size);
-
-/* list.c */
-void	get_list(t_list **lst, int nb_parameters, char **parameters);
-void	get_positions(t_list **lst);
-int		is_sort(t_list **lst);
-int		compare_two_min_position(t_list **lst);
-int		sens_rotate(t_list **lst, int position);
-
-/* push_swap.c */
-void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters);
-void	sort_three(t_list **lst_a, t_list **lst_b);
-void	sort_four(t_list **lst_a, t_list **lst_b);
-void	sort_five(t_list **lst_a, t_list **lst_b);
+/* sort_big_list.c */
+void	get_costs(t_list *lst_a, t_list *lst_b, int size_list_b);
+void	push_to_b(t_list **lst_a, t_list **lst_b, int size_list);
 void	sort_big(t_list **lst_a, t_list **lst_b, int size_list);
 
-/* operation_swap_push.c */
-void	swap(t_list **lst, t_operation index);
-void	swap_ab(t_list **lst_a, t_list **lst_b);
-void	push(t_list **lst_src, t_list **lst_dst, t_operation index);
+/* sort_small_list.c */
+void	sort_three(t_list **lst_a);
+void	sort_four(t_list **lst_a, t_list **lst_b);
+void	sort_five(t_list **lst_a, t_list **lst_b);
+void	push_swap(t_list **lst_a, t_list **lst_b, int nb_parameters);
 
-/* operation_rotate_reverse.c */
+/* utils.c */
+int		sens_rotate(t_list **lst, int position);
+int		is_sort(t_list **lst);
+int		is_max(t_list *lst, int element);
+
+/* list.c */
+int		get_min_cost(t_list *lst);
+int		get_min_position(t_list *lst);
+int		get_previous_position(t_list **lst, int element);
+void	get_positions(t_list **lst);
+void	get_list(t_list **lst, int nb_parameters, char **parameters);
+
+/* parsing.c */
+int		is_double(long long *inputs, int size);
+int		is_int(long long value, char *input);
+int		is_number(char *input);
+int		is_valid_inputs(int nb_parameters, char **parameters);
+
+/* moves.c */
+void	swap(t_list **lst, t_operation index);
+void	push(t_list **lst_src, t_list **lst_dst, t_operation index);
 void	rotate(t_list **lst, t_operation index);
-void	rotate_ab(t_list **lst_a, t_list **lst_b);
 void	reverse_rotate(t_list **lst, t_operation index);
-void	reverse_rotate_ab(t_list **lst_a, t_list **lst_b);
+void	bring_up_element(t_list **lst, int element, t_operation index);
 
 #endif

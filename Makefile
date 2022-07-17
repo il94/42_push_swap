@@ -5,14 +5,12 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCPATH = src/
 SRC = main.c \
-		push_swap.c \
 		parsing.c \
+		sort_small_list.c \
+		sort_big_list.c \
+		moves.c \
 		list.c \
-		operation_swap_push.c \
-		operation_rotate_reverse.c \
-		sort.c \
-		other/print.c \
-		temp.c
+		utils.c
 		
 OBJ = $(SRC:.c=.o)
 
@@ -21,11 +19,11 @@ all : $(NAME)
 $(NAME) : $(OBJ)
 	@$(MAKE) --no-print-directory -C libft
 	@echo "\033[36mMaking Push Swap\033[0m"
-	@$(CC) $(OBJ) -L libft/. -lft -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJ) -L libft/. -lft -o $(NAME)
 	@echo "\033[32mDone\033[0m"
 
 %.o : $(SRCPATH)%.c
-	@$(CC) -c $^
+	@$(CC) $(CFLAGS) -c $^
 
 clean :
 	@$(MAKE) --no-print-directory fclean -C libft

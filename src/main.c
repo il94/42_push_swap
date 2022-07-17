@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/05 12:31:37 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/13 18:18:06 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/17 22:21:00 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,20 +16,16 @@ int	main(int ac, char **av)
 {
 	t_list		*lst_a;
 	t_list		*lst_b;
-	char		**parameters;
-	int			nb_parameters;
 
 	if (ac < 2)
 		exit (0);
-	parameters = get_parameters(&nb_parameters, ac, av);
-	if (is_valid_inputs(nb_parameters, parameters))
+	if (is_valid_inputs(ac - 1, av + 1))
 	{
 		lst_b = NULL;
-		get_list(&lst_a, nb_parameters, parameters);
-		ft_free_array(parameters);
+		get_list(&lst_a, ac - 1, av + 1);
 		get_positions(&lst_a);
 		if (!is_sort(&lst_a))
-			push_swap(&lst_a, &lst_b, nb_parameters);
+			push_swap(&lst_a, &lst_b, ac - 1);
 		ft_ps_lstclear(&lst_a, &ft_delete_content);
 	}
 	else
