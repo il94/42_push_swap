@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   c_swap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/17 21:55:32 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/17 22:46:29 by ilandols         ###   ########.fr       */
+/*   Created: 2022/07/18 19:02:32 by ilandols          #+#    #+#             */
+/*   Updated: 2022/07/19 14:48:16 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "checker.h"
 
-void	checker(t_list **lst_a, t_list **lst_b, int nb_parameters, char **parameters)
+void	c_swap(t_list **lst)
 {
-	int	i;
-	int	j;
+	t_list	*tmp;
 
-	i = 0;
-	j = 0;
+	if (*lst && (*lst)->next)
+	{
+		tmp = (*lst)->next;
+		(*lst)->next = (*lst)->next->next;
+		ft_lstadd_front(lst, ft_ps_lstnew(tmp->data, tmp->final));
+		free(tmp);
+	}
 }
 
-int	main(int ac, char **av)
+void	c_swap_double(t_list **lst_a, t_list **lst_b)
 {
-	t_list		*lst_a;
-	t_list		*lst_b;
-
-	if (ac < 2)
-		exit (0);
-	if (is_valid_inputs(ac - 1, av + 1))
-	{
-		lst_b = NULL;
-		get_list(&lst_a, ac - 1, av + 1);
-		checker(&lst_a, &lst_b, ac - 1, av + 1);
-	}
-	else
-		write(2, "Error\n", 6);
-	return (0);
+	c_swap(lst_a);
+	c_swap(lst_b);
 }
