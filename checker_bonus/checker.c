@@ -6,7 +6,7 @@
 /*   By: ilandols <ilyes@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/19 15:17:06 by ilandols          #+#    #+#             */
-/*   Updated: 2022/07/19 15:33:16 by ilandols         ###   ########.fr       */
+/*   Updated: 2022/07/20 10:07:24 by ilandols         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,27 @@
 
 int	apply_move(t_list **lst_a, t_list **lst_b, char *mv)
 {
-	if (mv[0] == 's' && mv[1] == 'a' && mv[2] == '\n')
+	if (ft_strnstr(mv, "sa\n", 3))
 		c_swap(lst_a);
-	else if (mv[0] == 's' && mv[1] == 'b' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "sb\n", 3))
 		c_swap(lst_b);
-	else if (mv[0] == 's' && mv[1] == 's' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "ss\n", 3))
 		c_swap_double(lst_a, lst_b);
-	else if (mv[0] == 'p' && mv[1] == 'a' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "pa\n", 3))
 		c_push(lst_b, lst_a);
-	else if (mv[0] == 'p' && mv[1] == 'b' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "pb\n", 3))
 		c_push(lst_a, lst_b);
-	else if (mv[0] == 'r' && mv[1] == 'a' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "ra\n", 3))
 		c_rotate(lst_a);
-	else if (mv[0] == 'r' && mv[1] == 'b' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "rb\n", 3))
 		c_rotate(lst_b);
-	else if (mv[0] == 'r' && mv[1] == 'r' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "rr\n", 3))
 		c_rotate_double(lst_a, lst_b);
-	else if (mv[0] == 'r' && mv[1] == 'r' && mv[2] == 'a' && mv[3] == '\n')
+	else if (ft_strnstr(mv, "rra\n", 4))
 		c_reverse_rotate(lst_a);
-	else if (mv[0] == 'r' && mv[1] == 'r' && mv[2] == 'b' && mv[3] == '\n')
+	else if (ft_strnstr(mv, "rrb\n", 4))
 		c_reverse_rotate(lst_b);
-	else if (mv[0] == 'r' && mv[1] == 'r' && mv[2] == '\n')
+	else if (ft_strnstr(mv, "rrr\n", 4))
 		c_reverse_rotate_double(lst_a, lst_b);
 	else
 		return (0);
